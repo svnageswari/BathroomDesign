@@ -1,0 +1,443 @@
+{
+  "data": {
+    "plans": [
+      {
+        "id": "661bdc27-b5ee-428d-95b3-d9aa7bc4b036",
+        "userId": "628665",
+        "name": "POC",
+        "shape": "Rectangle",
+        "lastModified": 1644904736419,
+        "styling": {
+          "baseWallCovering": {
+            "tileId": "NT20-4012FL",
+            "__typename": "WallCovering"
+          },
+          "__typename": "PlanStyling"
+        },
+        "ceiling": {
+          "id": "e8ef780d-b989-4928-af0b-0a4e2456a032",
+          "__typename": "Ceiling"
+        },
+        "walls": [
+          {
+            "id": "b14e7280-fa53-4d11-9956-0f8abbcf7928",
+            "from": {
+              "x": -2.5,
+              "y": 0,
+              "z": -2,
+              "__typename": "PlannerVector3"
+            },
+            "to": { "x": 2.5, "y": 0, "z": -2, "__typename": "PlannerVector3" },
+            "height": 2.4,
+            "__typename": "Wall"
+          },
+          {
+            "id": "ec5bbab3-af67-49da-8315-6ba2450d8e14",
+            "from": {
+              "x": 2.5,
+              "y": 0,
+              "z": -2,
+              "__typename": "PlannerVector3"
+            },
+            "to": { "x": 2.5, "y": 0, "z": 2, "__typename": "PlannerVector3" },
+            "height": 2.4,
+            "__typename": "Wall"
+          },
+          {
+            "id": "dabeaacb-3304-46cf-a02a-185f8d62967e",
+            "from": {
+              "x": 2.5,
+              "y": 0,
+              "z": 2,
+              "__typename": "PlannerVector3"
+            },
+            "to": { "x": -2.5, "y": 0, "z": 2, "__typename": "PlannerVector3" },
+            "height": 2.4,
+            "__typename": "Wall"
+          },
+          {
+            "id": "13ab5f24-0069-4403-866e-6fcdd0f8554a",
+            "from": {
+              "x": -2.5,
+              "y": 0,
+              "z": 2,
+              "__typename": "PlannerVector3"
+            },
+            "to": {
+              "x": -2.5,
+              "y": 0,
+              "z": -2,
+              "__typename": "PlannerVector3"
+            },
+            "height": 2.4,
+            "__typename": "Wall"
+          }
+        ],
+        "products": [
+          {
+            "productId": "9502500",
+            "id": "fbc81201-b44c-4d06-8d66-53a361c9a2c0",
+            "parentId": "4b33e1c2-4d29-4159-a4b6-1d6ce6c45ff3",
+            "position": {
+              "x": -0.19078568312306254,
+              "y": 0.16514645216678403,
+              "z": -0.06120375487722218,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "__typename": "ProductInPlan"
+          },
+          {
+            "productId": "9507178",
+            "id": "4b33e1c2-4d29-4159-a4b6-1d6ce6c45ff3",
+            "parentId": null,
+            "position": {
+              "x": 1.3923578654417246,
+              "y": 0.00009999999999926863,
+              "z": -1.2938182246137044,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "__typename": "ProductInPlan"
+          },
+          {
+            "productId": "9509112",
+            "id": "1822f2a1-3261-4709-973a-9db93749e9c7",
+            "parentId": "13ab5f24-0069-4403-866e-6fcdd0f8554a",
+            "position": {
+              "x": 2.0363319976968386,
+              "y": 1.0705903614762002,
+              "z": 0.02459999935925028,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": -2.220446049250313e-16,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "__typename": "ProductInPlan"
+          },
+          {
+            "productId": "2213356",
+            "id": "e5f017c3-efeb-4d12-8f46-4f30191c48e1",
+            "parentId": "dabeaacb-3304-46cf-a02a-185f8d62967e",
+            "position": {
+              "x": 0.9789281575061666,
+              "y": 1.748760937000981,
+              "z": 0.00009999999999998899,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": -6.123233995736766e-17,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "__typename": "ProductInPlan"
+          },
+          {
+            "productId": "9507797",
+            "id": "f97cd6ff-b503-4f03-b70d-1c072235f147",
+            "parentId": "13ab5f24-0069-4403-866e-6fcdd0f8554a",
+            "position": {
+              "x": 2.05296547037417,
+              "y": 0.9762549653134993,
+              "z": 0.13597535917758918,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": -2.220446049250313e-16,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "__typename": "ProductInPlan"
+          },
+          {
+            "productId": "9502500",
+            "id": "e46fa6c3-f796-47ad-a814-565a0e064525",
+            "parentId": null,
+            "position": {
+              "x": 2.3204817361547683,
+              "y": 0.00010000000000039787,
+              "z": 1.7918248119587856,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "__typename": "ProductInPlan"
+          },
+          {
+            "productId": "1805496",
+            "id": "dc3345be-b39e-4bf6-b24b-d9801065ba2f",
+            "parentId": "dabeaacb-3304-46cf-a02a-185f8d62967e",
+            "position": {
+              "x": 3.078701193154809,
+              "y": 0.25057574491087853,
+              "z": 0.32509998807907103,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": -6.123233995736766e-17,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "__typename": "ProductInPlan"
+          }
+        ],
+        "doors": [
+          {
+            "id": "99c728c8-490c-482f-b24c-20190570d5b6",
+            "parentId": "b14e7280-fa53-4d11-9956-0f8abbcf7928",
+            "style": "",
+            "position": {
+              "x": 0.5932463188515045,
+              "y": 0,
+              "z": 0,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "width": 0.8,
+            "height": 2,
+            "__typename": "Door"
+          }
+        ],
+        "windows": [],
+        "partitionWalls": [],
+        "glassScreens": [
+          {
+            "parentId": null,
+            "id": "0ae88a31-69f7-418c-be94-87af33002f67",
+            "from": {
+              "x": 0.9483150469263908,
+              "y": -5.975288415487189e-16,
+              "z": 0.8089693318580653,
+              "__typename": "PlannerVector3"
+            },
+            "to": {
+              "x": 0.9483150469263908,
+              "y": -5.975288415487189e-16,
+              "z": 1.8089693318580653,
+              "__typename": "PlannerVector3"
+            },
+            "height": 2.4,
+            "depth": 0.012,
+            "__typename": "Wall"
+          }
+        ],
+        "rulers": [],
+        "obstacles": [],
+        "__typename": "Plan"
+      },
+      {
+        "id": "af296a68-7439-4825-8e1b-11d328ed3018",
+        "userId": "628665",
+        "name": "hello",
+        "shape": "Rectangle",
+        "lastModified": 1644407867826,
+        "styling": {
+          "baseWallCovering": {
+            "tileId": "NT20-4012FL",
+            "__typename": "WallCovering"
+          },
+          "__typename": "PlanStyling"
+        },
+        "ceiling": {
+          "id": "d794d088-59aa-47f5-b368-472adce27b7a",
+          "__typename": "Ceiling"
+        },
+        "walls": [
+          {
+            "id": "f6668259-1ae8-4be0-9afd-12e92f1b6c67",
+            "from": {
+              "x": -1.5,
+              "y": 0,
+              "z": -1,
+              "__typename": "PlannerVector3"
+            },
+            "to": { "x": 1.5, "y": 0, "z": -1, "__typename": "PlannerVector3" },
+            "height": 2.4,
+            "__typename": "Wall"
+          },
+          {
+            "id": "7258c0a5-f18d-4677-b5f3-d60ead5cc11d",
+            "from": {
+              "x": 1.5,
+              "y": 0,
+              "z": -1,
+              "__typename": "PlannerVector3"
+            },
+            "to": { "x": 1.5, "y": 0, "z": 1, "__typename": "PlannerVector3" },
+            "height": 2.4,
+            "__typename": "Wall"
+          },
+          {
+            "id": "b96b3238-858f-4698-92b9-6b4e7f61a2c5",
+            "from": {
+              "x": 1.5,
+              "y": 0,
+              "z": 1,
+              "__typename": "PlannerVector3"
+            },
+            "to": { "x": -1.5, "y": 0, "z": 1, "__typename": "PlannerVector3" },
+            "height": 2.4,
+            "__typename": "Wall"
+          },
+          {
+            "id": "c84f6765-4bae-42c4-b90a-87e00cf5d570",
+            "from": {
+              "x": -1.5,
+              "y": 0,
+              "z": 1,
+              "__typename": "PlannerVector3"
+            },
+            "to": {
+              "x": -1.5,
+              "y": 0,
+              "z": -1,
+              "__typename": "PlannerVector3"
+            },
+            "height": 2.4,
+            "__typename": "Wall"
+          }
+        ],
+        "products": [
+          {
+            "productId": "1862150",
+            "id": "510708c6-b3fa-4275-9dd9-7634ec178437",
+            "parentId": null,
+            "position": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "__typename": "ProductInPlan"
+          }
+        ],
+        "doors": [
+          {
+            "id": "b6f4a5b6-039f-43ef-804e-0a195121f542",
+            "parentId": "7258c0a5-f18d-4677-b5f3-d60ead5cc11d",
+            "style": "",
+            "position": {
+              "x": 1.4774393341675534,
+              "y": 0,
+              "z": 0,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "width": 0.8,
+            "height": 2,
+            "__typename": "Door"
+          }
+        ],
+        "windows": [
+          {
+            "id": "7122bc34-12fa-4817-a4da-8ba915ad679f",
+            "parentId": "b96b3238-858f-4698-92b9-6b4e7f61a2c5",
+            "style": "Fixed",
+            "position": {
+              "x": 2.4788976861713934,
+              "y": 1.1519957528622162,
+              "z": 5.551115123125783e-16,
+              "__typename": "PlannerVector3"
+            },
+            "rotation": {
+              "x": 0,
+              "y": 0,
+              "z": 0,
+              "w": 1,
+              "__typename": "PlannerQuaternion"
+            },
+            "width": 1,
+            "height": 1,
+            "__typename": "Window"
+          }
+        ],
+        "partitionWalls": [
+          {
+            "parentId": null,
+            "id": "aef32411-c942-4324-9b4f-ef2e473312a6",
+            "from": {
+              "x": -1.8928094865008778,
+              "y": -7.995846953234785e-16,
+              "z": 0.3989906640900305,
+              "__typename": "PlannerVector3"
+            },
+            "to": {
+              "x": -0.8928094865008778,
+              "y": -7.995846953234785e-16,
+              "z": 0.3989906640900305,
+              "__typename": "PlannerVector3"
+            },
+            "height": 2.4,
+            "depth": 0.09,
+            "__typename": "Wall"
+          }
+        ],
+        "glassScreens": [
+          {
+            "parentId": null,
+            "id": "aa1c38a9-e066-4133-828e-38406f0c16d5",
+            "from": {
+              "x": -0.5,
+              "y": 0,
+              "z": 0,
+              "__typename": "PlannerVector3"
+            },
+            "to": { "x": 0.5, "y": 0, "z": 0, "__typename": "PlannerVector3" },
+            "height": 2.4,
+            "depth": 0.012,
+            "__typename": "Wall"
+          }
+        ],
+        "rulers": [],
+        "obstacles": [],
+        "__typename": "Plan"
+      }
+    ]
+  }
+}
