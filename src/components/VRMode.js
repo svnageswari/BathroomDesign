@@ -18,6 +18,8 @@ function VRMode() {
       if (vrBtn) {
         vrBtn.style.display = "none";
       }
+
+      window.location.reload();
     };
   }, []);
 

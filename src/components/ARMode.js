@@ -13,12 +13,13 @@ function ARMode() {
       }
     }, 1000)
     
-
     return () => {
       const arBtn = document.getElementById("ARButton");
       if (arBtn) {
         arBtn.style.display = "none";
       }
+
+      window.location.reload();
     };
   }, []);
 
