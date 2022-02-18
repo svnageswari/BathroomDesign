@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { VRCanvas, DefaultXRControllers } from "@react-three/xr";
 import { useLocation } from "react-router-dom";
-import DesignTwo from "./DesignTwo";
-import DesignOne from "./DesignOne";
+import DesignTwo from "../Design/DesignTwo";
+import DesignOne from "../Design/DesignOne";
 
 function VRMode() {
   useEffect(() => {
@@ -28,7 +28,7 @@ function VRMode() {
   return (
     <VRCanvas camera={{ position: [0, 2, 10] }}>
       <DefaultXRControllers />
-      {design === "Design_1" ? <DesignOne /> : <DesignTwo />}
+      {design === "Design_1" ? <DesignOne mode = {"VR"}/> : <DesignTwo mode = {"VR"}/>}
     </VRCanvas>
   );
 }

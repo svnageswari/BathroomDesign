@@ -3,8 +3,8 @@ import { Route, Routes } from "react-router";
 import { BrowserRouter as Router } from "react-router-dom";
 import Home from "./Home";
 import Mode from "./Mode";
-import ARMode from "./ARMode";
-import VRMode from "./VRMode";
+import ARMode from "./Mode/ARMode";
+import VRMode from "./Mode/VRMode";
 
 function Body() {
   return (
