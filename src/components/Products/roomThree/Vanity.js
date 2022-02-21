@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function VanityModel({ ...props }) {
+export default function Vanity({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/Model/vanity.glb");
+  const { nodes, materials } = useGLTF("/model/roomThree/vanity.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -26,4 +26,4 @@ export default function VanityModel({ ...props }) {
   );
 }
 
-useGLTF.preload("/Model/vanity.glb");
+useGLTF.preload("/model/roomThree/vanity.glb");

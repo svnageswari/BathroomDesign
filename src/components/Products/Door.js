@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function DoorModel({ ...props }) {
+export default function Door({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/Model/door.glb");
+  const { nodes, materials } = useGLTF("/model/door.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -42,4 +42,4 @@ export default function DoorModel({ ...props }) {
   );
 }
 
-useGLTF.preload("/Model/door.glb");
+useGLTF.preload("/model/door.glb");

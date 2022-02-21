@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function PipeModel({ ...props }) {
+export default function Pipe({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/Model/pipe.glb");
+  const { nodes, materials } = useGLTF("/model/roomOne/pipe.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -14,4 +14,4 @@ export default function PipeModel({ ...props }) {
   );
 }
 
-useGLTF.preload("/Model/pipe.glb");
+useGLTF.preload("/model/roomOne/pipe.glb");

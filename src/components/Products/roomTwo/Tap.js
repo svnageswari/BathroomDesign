@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function TapModel({ ...props }) {
+export default function Tap({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/Model/tap.glb");
+  const { nodes, materials } = useGLTF("/model/roomTwo/tap.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -16,4 +16,4 @@ export default function TapModel({ ...props }) {
   );
 }
 
-useGLTF.preload("/Model/tap.glb");
+useGLTF.preload("/model/roomTwo/tap.glb");

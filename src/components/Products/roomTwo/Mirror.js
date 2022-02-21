@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function MirrorModel({ ...props }) {
+export default function Mirror({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/Model/mirror.glb");
+  const { nodes, materials } = useGLTF("/model/roomTwo/mirror.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -31,4 +31,4 @@ export default function MirrorModel({ ...props }) {
   );
 }
 
-useGLTF.preload("/Model/mirror.glb");
+useGLTF.preload("/model/roomTwo/mirror.glb");

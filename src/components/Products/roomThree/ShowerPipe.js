@@ -1,22 +1,20 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function BathModel({ ...props }) {
+export default function ShowerPipe({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/Model/bath.glb");
+  const { nodes, materials } = useGLTF("/model/roomThree/showerPipe.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
         geometry={
-          nodes.Reece_Bath_Omvivo_Villa_Freestanding_Bath_1725_mm_Type_1
-            .geometry
+          nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1.geometry
         }
         material={materials.Reece_Material_Secondary}
       />
       <mesh
         geometry={
-          nodes.Reece_Bath_Omvivo_Villa_Freestanding_Bath_1725_mm_Type_1_1
-            .geometry
+          nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1_1.geometry
         }
         material={materials.Reece_Material_Main}
       />
@@ -24,4 +22,4 @@ export default function BathModel({ ...props }) {
   );
 }
 
-useGLTF.preload("/Model/bath.glb");
+useGLTF.preload("/model/roomThree/showerPipe.glb");
