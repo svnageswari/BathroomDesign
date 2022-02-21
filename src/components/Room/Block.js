@@ -4,7 +4,7 @@ import { Box } from "@react-three/drei";
 
 function Block({ position, rotation, scale, type }) {
   let map = setMapValue(type);
-  let color = type === "ceiling" ? "#413426" : "white"; 
+  let color = type === "ceiling" ? "#413426" : "white";
 
   return (
     <group position={position} rotation={rotation} scale={scale}>
@@ -21,6 +21,7 @@ function setMapValue(type) {
   );
   const floor = new THREE.TextureLoader().load("assets/floor.jpg");
   const glass = new THREE.TextureLoader().load("assets/glass.jpeg");
+  const sideWall = new THREE.TextureLoader().load("assets/SideWall.jpg");
 
   base.wrapS = THREE.RepeatWrapping;
   base.wrapT = THREE.RepeatWrapping;
@@ -28,6 +29,9 @@ function setMapValue(type) {
   floor.wrapS = THREE.RepeatWrapping;
   floor.wrapT = THREE.RepeatWrapping;
   floor.repeat.set(3, 3);
+  sideWall.wrapS = THREE.RepeatWrapping;
+  sideWall.wrapT = THREE.RepeatWrapping;
+  sideWall.repeat.set(14, 5);
 
   switch (type) {
     case "wall":
@@ -36,8 +40,10 @@ function setMapValue(type) {
       return floor;
     case "glass":
       return glass;
+    case "sideWall":
+      return sideWall;
     default:
-        return null;
+      return null;
   }
 }
 
