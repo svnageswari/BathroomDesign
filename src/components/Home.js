@@ -7,6 +7,7 @@ function Home() {
       <div className="flex flex-wrap my-auto w-screen">
         <Button path="/mode" search="Design_1" label="Design 1"></Button>
         <Button path="/mode" search="Design_2" label="Design 2"></Button>
+        <Button path="/mode" search="Design_3" label="Design 3"></Button>
       </div>
     </div>
   );
