@@ -96,7 +96,6 @@ function DesignThree({ mode }) {
           <BathTubModel
             position={[-0.7, 0, -0.7]}
             rotation={[0, 0, 0]}
-            scale={[1.1, 1.1, 1.1]}
           />
           <BathtubPipeModel
             position={[0.25, 0.05, -0.7]}
