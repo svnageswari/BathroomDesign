@@ -19,7 +19,7 @@ import {
 } from "../Products/roomThree";
 
 function DesignThree({ mode }) {
-  let height = mode === "VR" ? 0.6 : -1.2;
+  let height = mode === "VR" ? 0 : -1.2;
   let wall = [
     {
       position: [0, 1.2, -1.15],

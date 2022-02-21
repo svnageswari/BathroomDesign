@@ -12,7 +12,7 @@ import {
 import Door from "../Products/Door";
 
 function DesignOne({ mode }) {
-  let height = mode === "VR" ? 0.6 : -1.2;
+  let height = mode === "VR" ? 0 : -1.2;
   let wall = [
     {
       position: [0, 1.2, -2],

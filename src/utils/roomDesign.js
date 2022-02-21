@@ -1,15 +1,15 @@
 import { DesignOne, DesignTwo, DesignThree } from "../components/Design";
 
-function getDesignComponent(design) {
+function getDesignComponent(design, mode) {
   switch (design) {
     case "Design_1":
-      return <DesignOne></DesignOne>;
+      return <DesignOne mode={mode} />;
     case "Design_2":
-      return <DesignTwo></DesignTwo>;
+      return <DesignTwo mode={mode}/>;
     case "Design_3":
-      return <DesignThree></DesignThree>;
+      return <DesignThree mode={mode}/>;
     default:
-      return <DesignOne></DesignOne>;
+      return <DesignOne mode={mode}/>;
   }
 }
 

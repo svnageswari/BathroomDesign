@@ -5,7 +5,7 @@ import { BathTub, Mirror, Tap, Vanity } from "../Products/roomTwo";
 import Door from "../Products/Door";
 
 function DesignTwo({ mode }) {
-  let height = mode === "VR" ? 0.6 : -1.2;
+  let height = mode === "VR" ? 0 : -1.2;
   let wall = [
     {
       position: [0, 1.3, -1.5],

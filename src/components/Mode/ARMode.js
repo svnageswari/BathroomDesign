@@ -26,7 +26,7 @@ function ARMode() {
 
   return (
     <ARCanvas camera={{ position: [0, 2, 10] }}>
-      {getDesignComponent(design)}
+      {getDesignComponent(design, "AR")}
     </ARCanvas>
   );
 }

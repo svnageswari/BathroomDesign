@@ -27,7 +27,7 @@ function VRMode() {
   return (
     <VRCanvas camera={{ position: [0, 2, 10] }}>
       <DefaultXRControllers />
-      {getDesignComponent(design)}
+      {getDesignComponent(design, "VR")}
     </VRCanvas>
   );
 }
