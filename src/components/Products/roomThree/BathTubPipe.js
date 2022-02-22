@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei'
 
 export default function BathtubPipe({ ...props }) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/model/roomThree/BathTubPipe.glb')
+  const { nodes, materials } = useGLTF('/model/roomThree/bathTubPipe.glb')
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -15,4 +15,4 @@ export default function BathtubPipe({ ...props }) {
   )
 }
 
-useGLTF.preload('/model/roomThree/BathTubPipe.glb')
+useGLTF.preload('/model/roomThree/bathTubPipe.glb')

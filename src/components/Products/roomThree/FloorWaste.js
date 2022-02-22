@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function FloorWaste({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/model/roomThree/FloorWaste.glb");
+  const { nodes, materials } = useGLTF("/model/roomThree/floorWaste.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -16,4 +16,4 @@ export default function FloorWaste({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/FloorWaste.glb");
+useGLTF.preload("/model/roomThree/floorWaste.glb");

@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function CubeTumbler({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/model/roomThree/CubeTumbler.glb");
+  const { nodes, materials } = useGLTF("/model/roomThree/cubeTumbler.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -25,4 +25,4 @@ export default function CubeTumbler({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/CubeTumbler.glb");
+useGLTF.preload("/model/roomThree/cubeTumbler.glb");
