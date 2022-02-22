@@ -61,6 +61,7 @@ function DesignOne({ mode }) {
               rotation={rotation}
               scale={scale}
               type={type}
+              color="#cdccc9"
             ></Wall>
           );
         })}
@@ -70,6 +71,7 @@ function DesignOne({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-5, 0.1, -4]}
           type="ceiling"
+          color="#7e786a"
         ></Ceiling>
 
         <Floor
@@ -77,6 +79,7 @@ function DesignOne({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-5, 0.1, -4]}
           type="floor"
+          color="#d2d2d1"
         ></Floor>
 
         <mesh rotation={[-Math.PI / 2, 0, 0]}>
@@ -103,6 +106,7 @@ function DesignOne({ mode }) {
           rotation={[0, 0, 0]}
           scale={[0.01, 2.4, 2]}
           type="glass"
+          color="#606d62"
         ></Glass>
       </group>
 

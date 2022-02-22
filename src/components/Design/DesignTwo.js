@@ -53,6 +53,7 @@ function DesignTwo({ mode }) {
               rotation={rotation}
               scale={scale}
               type={type}
+              color="#cdccc9"
             ></Wall>
           );
         })}
@@ -62,6 +63,7 @@ function DesignTwo({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.5, 0.1, -3]}
           type="ceiling"
+          color="#7e786a"
         ></Ceiling>
 
         <Floor
@@ -69,6 +71,7 @@ function DesignTwo({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.5, 0.1, -3]}
           type="floor"
+          color="#d2d2d1"
         ></Floor>
 
         <Door position={[0, 0, 1.6]} rotation={[0, 0, 0]} scale={[1, 1, 2]} />
