@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { OrbitControls, Text } from "@react-three/drei";
+import { OrbitControls, Text, Box } from "@react-three/drei";
 import { Wall, Floor, Ceiling, Glass, Light } from "../Room";
 import {
   Basin,
@@ -24,25 +24,25 @@ function DesignThree({ mode }) {
     {
       position: [0, 1.2, -1.15],
       rotation: [0, 0, 0],
-      scale: [3.4, 2.4, 0.1],
+      scale: [3.4, 2.4, 0],
       type: "wall-1",
     },
     {
       position: [1.7, 1.2, 0],
       rotation: [0, 0, 0],
-      scale: [0.1, 2.4, 2.3],
+      scale: [0, 2.4, 2.3],
       type: "sideWall",
     },
     {
       position: [0, 1.2, 1.15],
       rotation: [0, 0, 0],
-      scale: [-3.4, 2.4, 0.1],
+      scale: [-3.4, 2.4, 0],
       type: "wall-3",
     },
     {
       position: [-1.7, 1.2, 0],
       rotation: [0, 0, 0],
-      scale: [0.1, 2.4, -2.3],
+      scale: [0, 2.4, -2.3],
       type: "wall-4",
     },
   ];
@@ -74,14 +74,14 @@ function DesignThree({ mode }) {
         <Ceiling
           position={[0, 2.4, 0]}
           rotation={[0, 0, 0]}
-          scale={[-3.4, 0.1, -2.3]}
+          scale={[-3.4, 0, -2.3]}
           type="ceiling"
         ></Ceiling>
 
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
-          scale={[-3.4, 0.1, -2.3]}
+          scale={[-3.4, 0, -2.3]}
           type="floor"
         ></Floor>
 
@@ -96,7 +96,7 @@ function DesignThree({ mode }) {
 
           <Vanity position={[-1.63, 0, 0.5]} rotation={[0, 1.55, 0]} />
 
-          <WallPipe position={[-1.65, 1, 0.4]} rotation={[0, 1.5, 0]} />
+          <WallPipe position={[-1.65, 1, 0.4]} rotation={[0, 1.6, 0]} />
         </group>
 
         <group>
@@ -104,13 +104,13 @@ function DesignThree({ mode }) {
 
           <BathTubPipe position={[0.25, 0.05, -0.7]} rotation={[0, -1.5, 0]} />
 
-          <FloorWaste position={[-0.55, 0.06, 0.25]} rotation={[0, 0, 0]} />
+          <FloorWaste position={[-0.55, 0.03, 0.25]} rotation={[0, 0, 0]} />
 
           <TowelRailTwo position={[-1.65, 1.1, -0.7]} rotation={[0, 1.56, 0]} />
         </group>
 
         <group>
-          <InsertWaste position={[1.3, 0.07, -0.8]} rotation={[0, 0, 0]} />
+          <InsertWaste position={[1.3, 0.02, -0.8]} rotation={[0, 0, 0]} />
 
           <ShowerPipe position={[1, 1.75, -1.1]} rotation={[0, 0, 0]} />
 
@@ -118,41 +118,51 @@ function DesignThree({ mode }) {
 
           <WallTopAssemblies position={[1.3, 1.2, -1.1]} rotation={[0, 0, 0]} />
 
-          <Glass
-            position={[0.5, 0.93, -0.5]}
+          <group
+            position={[0.5, 0.95, -0.54]}
+            rotation={[0, 0, 0]}
+            scale={[0.01, 1.9, 1.2]}
+          >
+          <Box args={[1, 1, 1]}>
+              <meshBasicMaterial attach="material" opacity={0.5} transparent color={"#606d62"} />
+          </Box>
+          </group>
+
+          {/* <Glass
+            position={[0.5, 0.95, -0.54]}
             rotation={[0, 0, 0]}
             scale={[0.01, 1.9, 1.2]}
             type="glass"
-          ></Glass>
+          ></Glass> */}
 
           <Floor
-            position={[1.1, 0.03, -0.5]}
+            position={[1.09, 0.01, -0.54]}
             rotation={[0, 0, 0]}
-            scale={[1.2, 0.05, 1.2]}
+            scale={[1.2, 0.0, 1.22]}
             type="showerFloor"
           ></Floor>
         </group>
       </group>
 
-      <directionalLight intensity={0.5} position={[6, 2, 1]} />
+      <directionalLight intensity={0.9} position={[6, 2, 1]} />
 
       <ambientLight intensity={0.1} />
 
-      <Light
+      {/* <Light
         position={[0, 2.4, 0]}
         color="white"
         intensity={2}
         distance={10}
         orbitalSpeed={2}
-      />
+      /> */}
 
-      <Light
+      {/* <Light
         position={[-2, 2.4, 4]}
         color="white"
         intensity={2}
         distance={10}
         orbitalSpeed={2}
-      />
+      /> */}
     </Suspense>
   );
 }

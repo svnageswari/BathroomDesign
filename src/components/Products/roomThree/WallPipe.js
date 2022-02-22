@@ -7,12 +7,10 @@ export default function WallPipe({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
-        geometry={
-          nodes.Reece_Tap_Milli_Pure_Basin_Tap_Hostess_System_160_mm_Type_1
-            .geometry
-        }
-        material={materials.Reece_Material_Main}
-      />
+        geometry={nodes.Reece_Tap_Milli_Pure_Basin_Tap_Hostess_System_160_mm_Type_1.geometry}
+        material={materials['Reece_Brass_Matte Black']}
+      >
+      </mesh>
       <mesh
         geometry={
           nodes.Reece_Tap_Milli_Pure_Basin_Tap_Hostess_System_160_mm_Type_1_1

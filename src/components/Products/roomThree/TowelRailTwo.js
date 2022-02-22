@@ -8,7 +8,8 @@ export default function TowelRailTwo({ ...props }) {
     <group ref={group} {...props} dispose={null}>
       <mesh
         geometry={nodes.Reece_Towel_Rail_Mizu_Drift_Single_Type_5.geometry}
-        material={materials.Reece_Material_Main}
+        material={materials['Reece_Brass_Matte Black']}
+        material-color="#110f0f"
       />
     </group>
   );

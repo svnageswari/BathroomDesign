@@ -8,11 +8,10 @@ export default function WallTopAssemblies({ ...props }) {
   );
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh
-        geometry={
-          nodes.Reece_Tap_Mizu_Drift_Wall_Top_Assemblies_Type_1.geometry
-        }
-        material={materials.Reece_Material_Main}
+      <mesh castShadow receiveShadow
+        geometry={nodes.Reece_Tap_Mizu_Drift_Wall_Top_Assemblies_Type_1.geometry}
+        material={materials['Reece_Brass_Matte Black']}
+        material-color="#110f0f"
       />
     </group>
   );

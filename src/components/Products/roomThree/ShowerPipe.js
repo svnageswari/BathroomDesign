@@ -7,16 +7,15 @@ export default function ShowerPipe({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
-        geometry={
-          nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1.geometry
-        }
-        material={materials.Reece_Material_Secondary}
-      />
+        geometry={nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1.geometry}
+        material={materials.Reece_Brass_Chrome}
+        material-color="#f6feff"
+      >
+      </mesh>
       <mesh
-        geometry={
-          nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1_1.geometry
-        }
-        material={materials.Reece_Material_Main}
+        geometry={nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1_1.geometry}
+        material={materials['Reece_Brass_Matte Black']}
+        material-color="#110f0f"
       />
     </group>
   );
