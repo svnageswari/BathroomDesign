@@ -3,9 +3,8 @@ import * as THREE from "three";
 import { Box } from "@react-three/drei";
 
 function Block({ position, rotation, scale, type, color }) {
-  let typeValue = type.split("-")[0];
-  let map = setMapValue(typeValue);
-  let [opacity, transparent] = typeValue === "glass" ? [0.5, true] : [0, false];
+  let map = setTexture(type);
+  let [opacity, transparent] = type === "glass" ? [0.5, true] : [0, false];
 
   return (
     <group position={position} rotation={rotation} scale={scale}>
@@ -22,17 +21,16 @@ function Block({ position, rotation, scale, type, color }) {
   );
 }
 
-function setMapValue(type) {
-  const base = new THREE.TextureLoader().load(
-    "https://content.reece.com.au/dxresources/f157/f157a1e5-5803-4fbb-a3c6-4914f86bf4db.jpg"
-  );
+function setTexture(type) {
+  const wall = new THREE.TextureLoader().load("assets/wall.jpeg");
   const floor = new THREE.TextureLoader().load("assets/floor.jpg");
   const sideWall = new THREE.TextureLoader().load("assets/SideWall.jpg");
   const showerFloor = new THREE.TextureLoader().load("assets/ShowerFloor.jpg");
+  const { x, y } = setWallTextureRepetition(type);
 
-  base.wrapS = THREE.RepeatWrapping;
-  base.wrapT = THREE.RepeatWrapping;
-  base.repeat.set(5, 4);
+  wall.wrapS = THREE.RepeatWrapping;
+  wall.wrapT = THREE.RepeatWrapping;
+  wall.repeat.set(x, y);
 
   floor.wrapS = THREE.RepeatWrapping;
   floor.wrapT = THREE.RepeatWrapping;
@@ -46,9 +44,11 @@ function setMapValue(type) {
   showerFloor.wrapT = THREE.RepeatWrapping;
   showerFloor.repeat.set(4, 4);
 
+  type = type.split("-")[0];
+
   switch (type) {
     case "wall":
-      return base;
+      return wall;
     case "floor":
       return floor;
     case "sideWall":
@@ -57,6 +57,19 @@ function setMapValue(type) {
       return showerFloor;
     default:
       return null;
+  }
+}
+
+function setWallTextureRepetition(type) {
+  switch (type) {
+    case "wall-3":
+      return { x: 2, y: 4 };
+    case "wall-3-top":
+      return { x: 1.5, y: 1 };
+    case "wall-3-side":
+      return { x: 1.2, y: 4 };
+    default:
+      return { x: 5, y: 4 };
   }
 }
 

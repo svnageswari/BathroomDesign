@@ -34,10 +34,22 @@ function DesignThree({ mode }) {
       type: "sideWall",
     },
     {
-      position: [0, 1.2, 1.15],
+      position: [0.9, 1.2, 1.15],
       rotation: [0, 0, 0],
-      scale: [-3.4, 2.4, 0],
+      scale: [-1.6, 2.4, 0],
       type: "wall-3",
+    },
+    {
+      position: [-0.4, 2.1, 1.15],
+      rotation: [0, 0, 0],
+      scale: [-1, 0.6, 0],
+      type: "wall-3-top",
+    },
+    {
+      position: [-1.3, 1.2, 1.15],
+      rotation: [0, 0, 0],
+      scale: [-0.8, 2.4, 0],
+      type: "wall-3-side",
     },
     {
       position: [-1.7, 1.2, 0],
