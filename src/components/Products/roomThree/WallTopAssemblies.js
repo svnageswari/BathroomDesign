@@ -11,8 +11,9 @@ export default function WallTopAssemblies({ ...props }) {
       <mesh castShadow receiveShadow
         geometry={nodes.Reece_Tap_Mizu_Drift_Wall_Top_Assemblies_Type_1.geometry}
         material={materials['Reece_Brass_Matte Black']}
-        material-color="#110f0f"
-      />
+      >
+        <meshPhongMaterial attach="material" color="#110f0f"/>
+      </mesh>
     </group>
   );
 }

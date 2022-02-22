@@ -9,8 +9,9 @@ export default function BathtubPipe({ ...props }) {
       <mesh
         geometry={nodes.Reece_Tap_Mizu_Drift_MK2_Bath_Floor_Mixer_Type_1.geometry}
         material={materials['Reece_Brass_Matte Black']}
-        material-color="#110f0f"
-      />
+      >
+        <meshPhongMaterial attach="material" color="#110f0f"/>
+      </mesh>
     </group>
   )
 }

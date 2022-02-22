@@ -10,6 +10,7 @@ export default function WallPipe({ ...props }) {
         geometry={nodes.Reece_Tap_Milli_Pure_Basin_Tap_Hostess_System_160_mm_Type_1.geometry}
         material={materials['Reece_Brass_Matte Black']}
       >
+        <meshPhongMaterial attach="material" color="#000000"/>
       </mesh>
       <mesh
         geometry={
@@ -17,7 +18,9 @@ export default function WallPipe({ ...props }) {
             .geometry
         }
         material={materials["Reece_Brass_Matte Black"]}
-      />
+      >
+        <meshPhongMaterial attach="material" color="#000000"/>
+      </mesh>
     </group>
   );
 }

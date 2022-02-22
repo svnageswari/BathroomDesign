@@ -9,14 +9,15 @@ export default function ShowerPipe({ ...props }) {
       <mesh
         geometry={nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1.geometry}
         material={materials.Reece_Brass_Chrome}
-        material-color="#f6feff"
       >
+        <meshPhongMaterial attach="material" color="#f6feff"/>
       </mesh>
       <mesh
         geometry={nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1_1.geometry}
         material={materials['Reece_Brass_Matte Black']}
-        material-color="#110f0f"
-      />
+      >
+        <meshPhongMaterial attach="material" color="#110f0f"/>
+      </mesh>
     </group>
   );
 }

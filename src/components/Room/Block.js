@@ -2,15 +2,21 @@ import React from "react";
 import * as THREE from "three";
 import { Box } from "@react-three/drei";
 
-function Block({ position, rotation, scale, type }) {
+function Block({ position, rotation, scale, type, color }) {
   let typeValue = type.split("-")[0];
   let map = setMapValue(typeValue);
-  let color = typeValue === "ceiling" ? "#413426" : "white";
+  let [opacity, transparent] = typeValue === "glass" ? [0.5, true] : [0, false];
 
   return (
     <group position={position} rotation={rotation} scale={scale}>
       <Box args={[1, 1, 1]}>
-        <meshBasicMaterial attach="material" color={color} map={map} />
+        <meshBasicMaterial
+          attach="material"
+          color={color}
+          map={map}
+          transparent={transparent}
+          opacity={opacity}
+        />
       </Box>
     </group>
   );
@@ -21,7 +27,6 @@ function setMapValue(type) {
     "https://content.reece.com.au/dxresources/f157/f157a1e5-5803-4fbb-a3c6-4914f86bf4db.jpg"
   );
   const floor = new THREE.TextureLoader().load("assets/floor.jpg");
-  const glass = new THREE.TextureLoader().load("assets/glass.jpeg");
   const sideWall = new THREE.TextureLoader().load("assets/SideWall.jpg");
   const showerFloor = new THREE.TextureLoader().load("assets/ShowerFloor.jpg");
 
@@ -46,8 +51,6 @@ function setMapValue(type) {
       return base;
     case "floor":
       return floor;
-    case "glass":
-      return glass;
     case "sideWall":
       return sideWall;
     case "showerFloor":

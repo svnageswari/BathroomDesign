@@ -13,7 +13,9 @@ export default function BathTub({ ...props }) {
             .geometry
         }
         material={materials.Reece_Material_Main}
-      />
+      >
+        <meshPhongMaterial color="#fbfff4"/>
+      </mesh>
     </group>
   );
 }

@@ -8,8 +8,9 @@ export default function MirrorCabinet({ ...props }) {
     <group ref={group} {...props} dispose={null}>
       <mesh
         geometry={nodes.Reece_Mirror_Kado_Lussi_Mirror_Cabinet_Type_2.geometry}
-        material={materials.Reece_Material_Main}
-      />
+      >
+        <meshPhongMaterial opacity={1} transparent color="#c1bebe" />
+      </mesh>
       <mesh
         geometry={
           nodes.Reece_Mirror_Kado_Lussi_Mirror_Cabinet_Type_2_1.geometry

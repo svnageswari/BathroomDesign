@@ -9,8 +9,9 @@ export default function TowelRailTwo({ ...props }) {
       <mesh
         geometry={nodes.Reece_Towel_Rail_Mizu_Drift_Single_Type_5.geometry}
         material={materials['Reece_Brass_Matte Black']}
-        material-color="#110f0f"
-      />
+      >
+        <meshPhongMaterial attach="material" color="#110f0f"/>
+      </mesh>
     </group>
   );
 }

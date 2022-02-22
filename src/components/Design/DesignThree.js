@@ -1,5 +1,5 @@
 import React, { Suspense } from "react";
-import { OrbitControls, Text, Box } from "@react-three/drei";
+import { OrbitControls, Text } from "@react-three/drei";
 import { Wall, Floor, Ceiling, Glass, Light } from "../Room";
 import {
   Basin,
@@ -67,6 +67,7 @@ function DesignThree({ mode }) {
               rotation={rotation}
               scale={scale}
               type={type}
+              color="#cdccc9"
             ></Wall>
           );
         })}
@@ -76,6 +77,7 @@ function DesignThree({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.4, 0, -2.3]}
           type="ceiling"
+          color="#7e786a"
         ></Ceiling>
 
         <Floor
@@ -83,57 +85,52 @@ function DesignThree({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.4, 0, -2.3]}
           type="floor"
+          color="#d2d2d1"
         ></Floor>
 
-        <group position={[0, 0, -0.1]}>
-          <Basin position={[-1.55, 0.7, 0.5]} rotation={[0, 1.5, 0]} />
+        <group position={[0, -0.15, -0.1]}>
+          <Basin position={[-1.55, 0.72, 0.5]} rotation={[0, 1.6, 0]} />
 
-          <CubeTumbler position={[-1.65, 1, 0.77]} rotation={[0, 1.5, 0]} />
+          <CubeTumbler position={[-1.699, 1, 0.77]} rotation={[0, 1.6, 0]} />
 
-          <MirrorCabinet position={[-1.65, 1.1, 0.5]} rotation={[0, 1.5, 0]} />
+          <MirrorCabinet position={[-1.69, 1.1, 0.5]} rotation={[0, 1.6, 0]} />
 
-          <RobeHook position={[-1.65, 0.6, 1.1]} rotation={[0, 1.5, 0]} />
+          <RobeHook position={[-1.699, 0.6, 1.1]} rotation={[0, 1.6, 0]} />
 
-          <Vanity position={[-1.63, 0, 0.5]} rotation={[0, 1.55, 0]} />
+          <Vanity position={[-1.69, 0, 0.5]} rotation={[0, 1.57, 0]} />
 
-          <WallPipe position={[-1.65, 1, 0.4]} rotation={[0, 1.6, 0]} />
+          <WallPipe position={[-1.696, 1, 0.4]} rotation={[0, 1.6, 0]} />
         </group>
 
         <group>
-          <BathTub position={[-0.7, 0, -0.7]} rotation={[0, 0, 0]} />
+          <BathTub position={[-0.7, 0.01, -0.7]} rotation={[0, 0, 0]} />
 
-          <BathTubPipe position={[0.25, 0.05, -0.7]} rotation={[0, -1.5, 0]} />
+          <BathTubPipe position={[0.25, 0.01, -0.7]} rotation={[0, -1.5, 0]} />
 
-          <FloorWaste position={[-0.55, 0.03, 0.25]} rotation={[0, 0, 0]} />
+          <FloorWaste position={[-0.55, 0.0001, 0.25]} rotation={[0, 0, 0]} />
 
-          <TowelRailTwo position={[-1.65, 1.1, -0.7]} rotation={[0, 1.56, 0]} />
+          <TowelRailTwo position={[-1.69, 1.1, -0.7]} rotation={[0, 1.56, 0]} />
         </group>
 
         <group>
           <InsertWaste position={[1.3, 0.02, -0.8]} rotation={[0, 0, 0]} />
 
-          <ShowerPipe position={[1, 1.75, -1.1]} rotation={[0, 0, 0]} />
+          <ShowerPipe position={[1, 1.75, -1.145]} rotation={[0, 0, 0]} />
 
-          <TowelRailOne position={[1, 0.5, 1.03]} rotation={[0, 3.2, 0]} />
+          <TowelRailOne position={[1, 0.5, 1.084]} rotation={[0, 3.15, 0]} />
 
-          <WallTopAssemblies position={[1.3, 1.2, -1.1]} rotation={[0, 0, 0]} />
-
-          <group
-            position={[0.5, 0.95, -0.54]}
+          <WallTopAssemblies
+            position={[1.3, 1.2, -1.145]}
             rotation={[0, 0, 0]}
-            scale={[0.01, 1.9, 1.2]}
-          >
-          <Box args={[1, 1, 1]}>
-              <meshBasicMaterial attach="material" opacity={0.5} transparent color={"#606d62"} />
-          </Box>
-          </group>
+          />
 
-          {/* <Glass
-            position={[0.5, 0.95, -0.54]}
+          <Glass
+            position={[0.5, 0.951, -0.54]}
             rotation={[0, 0, 0]}
             scale={[0.01, 1.9, 1.2]}
             type="glass"
-          ></Glass> */}
+            color="#606d62"
+          ></Glass>
 
           <Floor
             position={[1.09, 0.01, -0.54]}

@@ -12,7 +12,9 @@ export default function CubeTumbler({ ...props }) {
             .geometry
         }
         material={materials.Reece_Material_Main}
-      />
+      >
+        <meshPhongMaterial attach="material" color="#8f8979"/>
+      </mesh>
       <mesh
         geometry={
           nodes
@@ -20,7 +22,9 @@ export default function CubeTumbler({ ...props }) {
             .geometry
         }
         material={materials.Reece_Material_Secondary}
-      />
+      >
+        <meshPhongMaterial opacity={0.6} transparent color="#c1bebe"/>
+      </mesh>
     </group>
   );
 }

@@ -11,7 +11,9 @@ export default function InsertWaste({ ...props }) {
           nodes.Reece_Waste_Mizu_Drift_Tile_Insert_Waste_Type_2.geometry
         }
         material={materials.Reece_Material_Main}
-      />
+      >
+        <meshStandardMaterial metalness={0.5}/>
+      </mesh>
     </group>
   );
 }

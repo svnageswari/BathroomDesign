@@ -11,7 +11,9 @@ export default function FloorWaste({ ...props }) {
           nodes.Reece_Waste_Mizu_Drift_Floor_Waste_Square_Type_2.geometry
         }
         material={materials.Reece_Material_Main}
-      />
+      >
+        <meshPhongMaterial color="#c0c0c0"/>
+      </mesh>
     </group>
   );
 }

@@ -9,8 +9,9 @@ export default function RobeHook({ ...props }) {
       <mesh
         geometry={nodes.Reece_Accessory_Mizu_Soothe_Robe_Hook_Type_1.geometry}
         material={materials['Reece_Brass_Matte Black']}
-        material-color="#110f0f"
-      />
+      >
+        <meshPhongMaterial attach="material" color="#110f0f"/>
+      </mesh>
     </group>
   );
 }
