@@ -16,6 +16,8 @@ import {
   Vanity,
   WallPipe,
   WallTopAssemblies,
+  Door,
+  Window,
 } from "../Products/roomThree";
 
 function DesignThree({ mode }) {
@@ -24,37 +26,37 @@ function DesignThree({ mode }) {
     {
       position: [0, 1.2, -1.15],
       rotation: [0, 0, 0],
-      scale: [3.4, 2.4, 0],
+      scale: [3.4, 2.4, 0.1],
       type: "wall-1",
     },
     {
       position: [1.7, 1.2, 0],
       rotation: [0, 0, 0],
-      scale: [0, 2.4, 2.3],
+      scale: [0.1, 2.4, 2.3],
       type: "sideWall",
     },
     {
       position: [0.9, 1.2, 1.15],
       rotation: [0, 0, 0],
-      scale: [-1.6, 2.4, 0],
+      scale: [-1.6, 2.4, 0.1],
       type: "wall-3",
     },
     {
       position: [-0.4, 2.1, 1.15],
       rotation: [0, 0, 0],
-      scale: [-1, 0.6, 0],
+      scale: [-1, 0.6, 0.1],
       type: "wall-3-top",
     },
     {
       position: [-1.3, 1.2, 1.15],
       rotation: [0, 0, 0],
-      scale: [-0.8, 2.4, 0],
+      scale: [-0.8, 2.4, 0.1],
       type: "wall-3-side",
     },
     {
       position: [-1.7, 1.2, 0],
       rotation: [0, 0, 0],
-      scale: [0, 2.4, -2.3],
+      scale: [0.1, 2.4, -2.3],
       type: "wall-4",
     },
   ];
@@ -87,7 +89,7 @@ function DesignThree({ mode }) {
         <Ceiling
           position={[0, 2.4, 0]}
           rotation={[0, 0, 0]}
-          scale={[-3.4, 0, -2.3]}
+          scale={[-3.4, 0.1, -2.3]}
           type="ceiling"
           color="#7e786a"
         ></Ceiling>
@@ -95,7 +97,7 @@ function DesignThree({ mode }) {
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
-          scale={[-3.4, 0, -2.3]}
+          scale={[-3.4, 0.1, -2.3]}
           type="floor"
           color="#d2d2d1"
         ></Floor>
@@ -151,6 +153,8 @@ function DesignThree({ mode }) {
             type="showerFloor"
           ></Floor>
         </group>
+        <Door position={[-0.4,0,1.09]} rotation={[0,3.14,0]}/>
+        <Window position={[-0.4,1.2,-1.1]} rotation={[0,3.14,0]}/>
       </group>
 
       <directionalLight intensity={0.9} position={[6, 2, 1]} />

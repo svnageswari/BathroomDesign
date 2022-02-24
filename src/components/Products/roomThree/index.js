@@ -12,6 +12,8 @@ import TowelRailTwo from "./TowelRailTwo";
 import Vanity from "./Vanity";
 import WallPipe from "./WallPipe";
 import WallTopAssemblies from "./WallTopAssemblies";
+import Door from "./Door";
+import Window  from "./Window";
 
 export {
   Basin,
@@ -28,4 +30,6 @@ export {
   Vanity,
   WallPipe,
   WallTopAssemblies,
+  Door,
+  Window,
 };
