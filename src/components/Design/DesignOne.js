@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import { OrbitControls, Text } from "@react-three/drei";
-import { Wall, Floor, Ceiling, Glass, Light } from "../Room";
+import { OrbitControls, Environment, Sky } from "@react-three/drei";
+import { Wall, Floor, Ceiling, Glass, Plane } from "../Room";
 import {
   Toilet,
   Basin,
@@ -41,13 +41,15 @@ function DesignOne({ mode }) {
   ];
 
   return (
-    <Suspense
-      fallback={
-        <Text color="white" anchorX="center" anchorY="middle">
-          Loading
-        </Text>
-      }
-    >
+    <Suspense fallback={null}>
+      <Environment preset="warehouse" />
+
+      <Sky
+        distance={450000}
+        sunPosition={[0, 1, 0]}
+        inclination={0}
+        azimuth={0.25}
+      />
       <OrbitControls />
 
       <group position={[0, height, 0]}>
@@ -61,7 +63,6 @@ function DesignOne({ mode }) {
               rotation={rotation}
               scale={scale}
               type={type}
-              color="#cdccc9"
             ></Wall>
           );
         })}
@@ -71,7 +72,6 @@ function DesignOne({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-5, 0.1, -4]}
           type="ceiling"
-          color="#7e786a"
         ></Ceiling>
 
         <Floor
@@ -79,13 +79,9 @@ function DesignOne({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-5, 0.1, -4]}
           type="floor"
-          color="#d2d2d1"
         ></Floor>
 
-        <mesh rotation={[-Math.PI / 2, 0, 0]}>
-          <planeBufferGeometry attach="geometry" args={[10, 10]} />
-          <meshLambertMaterial attach="material" color="lightblue" />
-        </mesh>
+        <Plane />
 
         <Toilet position={[0.8, 0.047, -1.5]} rotation={[0, 0, 0]} />
 
@@ -114,20 +110,13 @@ function DesignOne({ mode }) {
 
       <ambientLight intensity={0.1} />
 
-      <Light
+      <pointLight
+        intensity={8}
         position={[0, 2.4, 0]}
-        color="white"
-        intensity={2}
-        distance={10}
-        orbitalSpeed={2}
-      />
-
-      <Light
-        position={[-2, 2.4, 4]}
-        color="white"
-        intensity={2}
-        distance={10}
-        orbitalSpeed={2}
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+        shadow-bias={-0.00001}
+        castShadow={true}
       />
     </Suspense>
   );

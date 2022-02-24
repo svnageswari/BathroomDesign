@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
-import { OrbitControls, Text } from "@react-three/drei";
-import { Wall, Floor, Ceiling, Light } from "../Room";
+import { OrbitControls, Environment, Sky } from "@react-three/drei";
+import { Wall, Floor, Ceiling, Plane } from "../Room";
 import { BathTub, Mirror, Tap, Vanity } from "../Products/roomTwo";
 import Door from "../Products/Door";
 
@@ -34,14 +34,16 @@ function DesignTwo({ mode }) {
   ];
 
   return (
-    <Suspense
-      fallback={
-        <Text color="white" anchorX="center" anchorY="middle">
-          Loading
-        </Text>
-      }
-    >
+    <Suspense fallback={null}>
       <OrbitControls />
+      <Environment preset="warehouse" />
+
+      <Sky
+        distance={450000}
+        sunPosition={[0, 1, 0]}
+        inclination={0}
+        azimuth={0.25}
+      />
 
       <group position={[0, height, 0]}>
         {wall.map((element) => {
@@ -53,7 +55,6 @@ function DesignTwo({ mode }) {
               rotation={rotation}
               scale={scale}
               type={type}
-              color="#cdccc9"
             ></Wall>
           );
         })}
@@ -63,7 +64,6 @@ function DesignTwo({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.5, 0.1, -3]}
           type="ceiling"
-          color="#7e786a"
         ></Ceiling>
 
         <Floor
@@ -71,8 +71,9 @@ function DesignTwo({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.5, 0.1, -3]}
           type="floor"
-          color="#d2d2d1"
         ></Floor>
+
+        <Plane />
 
         <Door position={[0, 0, 1.6]} rotation={[0, 0, 0]} scale={[1, 1, 2]} />
 
@@ -97,20 +98,13 @@ function DesignTwo({ mode }) {
 
       <ambientLight intensity={0.1} />
 
-      <Light
-        position={[0, 2.4, 0]}
-        color="white"
-        intensity={2}
-        distance={10}
-        orbitalSpeed={2}
-      />
-
-      <Light
-        position={[-2, 2.4, 4]}
-        color="white"
-        intensity={2}
-        distance={10}
-        orbitalSpeed={2}
+      <pointLight
+        intensity={8}
+        position={[0, 2.6, 0]}
+        shadow-mapSize-width={2048}
+        shadow-mapSize-height={2048}
+        shadow-bias={-0.00001}
+        castShadow={true}
       />
     </Suspense>
   );

@@ -1,25 +1,29 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import ProductMesh from "../../ProductMesh";
 
 export default function BathTub({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/model/roomTwo/bathTub.glb");
+  const { nodes } = useGLTF("/model/roomTwo/bathTub.glb");
+
+  const bathTub = [
+    {
+      product: "Reece_Bath_Omvivo_Villa_Freestanding_Bath_1725_mm_Type_1",
+      material: "Reece_Cast_Solid_Surface_White",
+      model: "surfaceWhite",
+    },
+    {
+      product: "Reece_Bath_Omvivo_Villa_Freestanding_Bath_1725_mm_Type_1_1",
+      material: "Reece_Cast_Solid_Surface_White",
+      model: "surfaceWhite",
+    },
+  ];
+
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh
-        geometry={
-          nodes.Reece_Bath_Omvivo_Villa_Freestanding_Bath_1725_mm_Type_1
-            .geometry
-        }
-        material={materials.Reece_Material_Secondary}
-      />
-      <mesh
-        geometry={
-          nodes.Reece_Bath_Omvivo_Villa_Freestanding_Bath_1725_mm_Type_1_1
-            .geometry
-        }
-        material={materials.Reece_Material_Main}
-      />
+      {bathTub.map((item) => {
+        return <ProductMesh item={item} nodes={nodes} key={item.product} />;
+      })}
     </group>
   );
 }

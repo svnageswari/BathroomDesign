@@ -1,23 +1,29 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import ProductMesh from "../../ProductMesh";
 
 export default function ShowerPipe({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/model/roomThree/showerPipe.glb");
+  const { nodes } = useGLTF("/model/roomThree/showerPipe.glb");
+
+  const showerPipe = [
+    {
+      product: "Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1",
+      material: "Reece_Brass_Matte Black",
+      model: "matteBlack",
+    },
+    {
+      product: "Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1_1",
+      material: "Reece_Brass_Matte Black",
+      model: "matteBlack",
+    },
+  ];
+
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh
-        geometry={nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1.geometry}
-        material={materials.Reece_Brass_Chrome}
-      >
-        <meshPhongMaterial attach="material" color="#f6feff"/>
-      </mesh>
-      <mesh
-        geometry={nodes.Reece_Shower_Posh_Domaine_Rail_Shower_Twin_Type_1_1.geometry}
-        material={materials['Reece_Brass_Matte Black']}
-      >
-        <meshPhongMaterial attach="material" color="#110f0f"/>
-      </mesh>
+      {showerPipe.map((item) => {
+        return <ProductMesh item={item} nodes={nodes} key={item.product} />;
+      })}
     </group>
   );
 }

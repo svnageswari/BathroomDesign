@@ -3,7 +3,9 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Basin({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/model/roomThree/basin.glb");
+  const { nodes } = useGLTF("/model/roomThree/basin.glb");
+  const { materials } = useGLTF("/model/materials/surfaceWhite.glb");
+
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
@@ -11,7 +13,7 @@ export default function Basin({ ...props }) {
           nodes.Reece_Basin_Kado_Lussi_Above_Counter_Thin_Edge_500_mm_Type_1
             .geometry
         }
-        material={materials.Reece_Material_Main}
+        material={materials.Reece_Cast_Solid_Surface_White}
       />
     </group>
   );
