@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import { OrbitControls, Sky, Environment } from "@react-three/drei";
+import React from "react";
 import { Wall, Floor, Ceiling, Glass, Plane } from "../Room";
 import {
   Basin,
@@ -62,18 +61,7 @@ function DesignThree({ mode }) {
   ];
 
   return (
-    <Suspense fallback={null}>
-      <Environment preset="warehouse" />
-
-      <Sky
-        distance={450000}
-        sunPosition={[0, 1, 0]}
-        inclination={0}
-        azimuth={0.25}
-      />
-
-      <OrbitControls />
-
+    <>
       <group position={[0, height, 0]}>
         {wall.map((element) => {
           const { position, rotation, scale, type } = element;
@@ -84,7 +72,7 @@ function DesignThree({ mode }) {
               rotation={rotation}
               scale={scale}
               type={type}
-            ></Wall>
+            />
           );
         })}
 
@@ -93,14 +81,14 @@ function DesignThree({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.4, 0.1, -2.3]}
           type="ceiling"
-        ></Ceiling>
+        />
 
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
           scale={[-3.4, 0.1, -2.3]}
           type="floor"
-        ></Floor>
+        />
 
         <Plane />
 
@@ -146,14 +134,14 @@ function DesignThree({ mode }) {
             scale={[0.01, 1.9, 1.2]}
             type="glass"
             color="#606d62"
-          ></Glass>
+          />
 
           <Floor
             position={[1.1, 0.005, -0.54]}
             rotation={[0, 0, 0]}
             scale={[1.2, 0, 1.22]}
             type="showerFloor"
-          ></Floor>
+          />
         </group>
         <Door position={[-0.4, 0, 1.09]} rotation={[0, 3.14, 0]} />
 
@@ -172,7 +160,7 @@ function DesignThree({ mode }) {
         shadow-bias={-0.00001}
         castShadow={true}
       />
-    </Suspense>
+    </>
   );
 }
 

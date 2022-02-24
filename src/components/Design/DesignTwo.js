@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import { OrbitControls, Environment, Sky } from "@react-three/drei";
+import React from "react";
 import { Wall, Floor, Ceiling, Plane } from "../Room";
 import { BathTub, Mirror, Tap, Vanity } from "../Products/roomTwo";
 import Door from "../Products/Door";
@@ -34,17 +33,7 @@ function DesignTwo({ mode }) {
   ];
 
   return (
-    <Suspense fallback={null}>
-      <OrbitControls />
-      <Environment preset="warehouse" />
-
-      <Sky
-        distance={450000}
-        sunPosition={[0, 1, 0]}
-        inclination={0}
-        azimuth={0.25}
-      />
-
+    <>
       <group position={[0, height, 0]}>
         {wall.map((element) => {
           const { position, rotation, scale, type } = element;
@@ -55,7 +44,7 @@ function DesignTwo({ mode }) {
               rotation={rotation}
               scale={scale}
               type={type}
-            ></Wall>
+            />
           );
         })}
 
@@ -64,14 +53,14 @@ function DesignTwo({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.5, 0.1, -3]}
           type="ceiling"
-        ></Ceiling>
+        />
 
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
           scale={[-3.5, 0.1, -3]}
           type="floor"
-        ></Floor>
+        />
 
         <Plane />
 
@@ -106,7 +95,7 @@ function DesignTwo({ mode }) {
         shadow-bias={-0.00001}
         castShadow={true}
       />
-    </Suspense>
+    </>
   );
 }
 

@@ -1,5 +1,4 @@
-import React, { Suspense } from "react";
-import { OrbitControls, Environment, Sky } from "@react-three/drei";
+import React from "react";
 import { Wall, Floor, Ceiling, Glass, Plane } from "../Room";
 import {
   Toilet,
@@ -41,17 +40,7 @@ function DesignOne({ mode }) {
   ];
 
   return (
-    <Suspense fallback={null}>
-      <Environment preset="warehouse" />
-
-      <Sky
-        distance={450000}
-        sunPosition={[0, 1, 0]}
-        inclination={0}
-        azimuth={0.25}
-      />
-      <OrbitControls />
-
+    <>
       <group position={[0, height, 0]}>
         {wall.map((element) => {
           const { position, rotation, scale, type } = element;
@@ -63,7 +52,7 @@ function DesignOne({ mode }) {
               rotation={rotation}
               scale={scale}
               type={type}
-            ></Wall>
+            />
           );
         })}
 
@@ -72,14 +61,14 @@ function DesignOne({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-5, 0.1, -4]}
           type="ceiling"
-        ></Ceiling>
+        />
 
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
           scale={[-5, 0.1, -4]}
           type="floor"
-        ></Floor>
+        />
 
         <Plane />
 
@@ -103,7 +92,7 @@ function DesignOne({ mode }) {
           scale={[0.01, 2.4, 2]}
           type="glass"
           color="#606d62"
-        ></Glass>
+        />
       </group>
 
       <directionalLight intensity={0.5} position={[6, 2, 1]} />
@@ -118,7 +107,7 @@ function DesignOne({ mode }) {
         shadow-bias={-0.00001}
         castShadow={true}
       />
-    </Suspense>
+    </>
   );
 }
 

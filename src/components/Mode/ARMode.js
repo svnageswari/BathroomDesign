@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
+import { Loader, Sky, Environment, OrbitControls } from "@react-three/drei";
 import { ARCanvas } from "@react-three/xr";
 import { useLocation } from "react-router-dom";
-import getDesignComponent from "../../utils/roomDesign";
 import { ACESFilmicToneMapping } from "three";
-import { Loader } from "@react-three/drei";
+import getDesignComponent from "../../utils/roomDesign";
 
 function ARMode() {
   useEffect(() => {
@@ -20,7 +20,7 @@ function ARMode() {
         arButton.style.display = "none";
       }
 
-      // window.location.reload();
+      window.location.reload();
     };
   }, []);
 
@@ -39,7 +39,20 @@ function ARMode() {
         shadows
         onCreated={({ gl }) => Object.assign(gl, glLightingConfig)}
       >
-        {getDesignComponent(design, "AR")}
+        <Suspense fallback={null}>
+          <Environment preset="warehouse" />
+
+          <Sky
+            distance={450000}
+            sunPosition={[0, 1, 0]}
+            inclination={0}
+            azimuth={0.25}
+          />
+
+          <OrbitControls />
+
+          {getDesignComponent(design, "AR")}
+        </Suspense>
       </ARCanvas>
       <Loader />
     </>
