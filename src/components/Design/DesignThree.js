@@ -38,19 +38,19 @@ function DesignThree({ mode }) {
     {
       position: [0.9, 1.2, 1.15],
       rotation: [0, 0, 0],
-      scale: [-1.6, 2.4, 0.1],
+      scale: [-1.7, 2.4, 0.1],
       type: "wall-3",
     },
     {
-      position: [-0.4, 2.1, 1.15],
+      position: [-0.4, 2.25, 1.15],
       rotation: [0, 0, 0],
-      scale: [-1, 0.6, 0.1],
+      scale: [-0.9, 0.3, 0.1],
       type: "wall-3-top",
     },
     {
       position: [-1.3, 1.2, 1.15],
       rotation: [0, 0, 0],
-      scale: [-0.8, 2.4, 0.1],
+      scale: [-0.9, 2.4, 0.1],
       type: "wall-3-side",
     },
     {
@@ -102,7 +102,7 @@ function DesignThree({ mode }) {
           color="#d2d2d1"
         ></Floor>
 
-        <group position={[0, -0.15, -0.1]}>
+        <group position={[0.05, -0.1, -0.1]}>
           <Basin position={[-1.55, 0.72, 0.5]} rotation={[0, 1.6, 0]} />
 
           <CubeTumbler position={[-1.699, 1, 0.77]} rotation={[0, 1.6, 0]} />
@@ -116,7 +116,7 @@ function DesignThree({ mode }) {
           <WallPipe position={[-1.696, 1, 0.4]} rotation={[0, 1.6, 0]} />
         </group>
 
-        <group>
+        <group position={[0.05,0.05,0]}>
           <BathTub position={[-0.7, 0.01, -0.7]} rotation={[0, 0, 0]} />
 
           <BathTubPipe position={[0.25, 0.01, -0.7]} rotation={[0, -1.5, 0]} />
@@ -126,12 +126,12 @@ function DesignThree({ mode }) {
           <TowelRailTwo position={[-1.69, 1.1, -0.7]} rotation={[0, 1.56, 0]} />
         </group>
 
-        <group>
+        <group position={[0,0.05,0.05]}> 
           <InsertWaste position={[1.3, 0.02, -0.8]} rotation={[0, 0, 0]} />
 
           <ShowerPipe position={[1, 1.75, -1.145]} rotation={[0, 0, 0]} />
 
-          <TowelRailOne position={[1, 0.5, 1.084]} rotation={[0, 3.15, 0]} />
+          <TowelRailOne position={[1, 0.5, 1]} rotation={[0, 3.15, 0]} />
 
           <WallTopAssemblies
             position={[1.3, 1.2, -1.145]}
@@ -147,9 +147,9 @@ function DesignThree({ mode }) {
           ></Glass>
 
           <Floor
-            position={[1.09, 0.01, -0.54]}
+            position={[1.1, 0.005, -0.54]}
             rotation={[0, 0, 0]}
-            scale={[1.2, 0.0, 1.22]}
+            scale={[1.2, 0, 1.22]}
             type="showerFloor"
           ></Floor>
         </group>

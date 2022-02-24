@@ -23,26 +23,26 @@ function Block({ position, rotation, scale, type, color }) {
 
 function setTexture(type) {
   const wall = new THREE.TextureLoader().load("assets/wall.jpeg");
-  const floor = new THREE.TextureLoader().load("assets/floor.jpg");
+  const floor = new THREE.TextureLoader().load("assets/floor.png");
   const sideWall = new THREE.TextureLoader().load("assets/SideWall.jpg");
   const showerFloor = new THREE.TextureLoader().load("assets/ShowerFloor.jpg");
   const { x, y } = setWallTextureRepetition(type);
 
   wall.wrapS = THREE.RepeatWrapping;
   wall.wrapT = THREE.RepeatWrapping;
-  wall.repeat.set(x, y);
+  wall.repeat.set(x/0.306, y/0.306);
 
   floor.wrapS = THREE.RepeatWrapping;
   floor.wrapT = THREE.RepeatWrapping;
-  floor.repeat.set(3, 3);
+  floor.repeat.set(3.4/0.6, 2.3/0.6);
 
   sideWall.wrapS = THREE.RepeatWrapping;
   sideWall.wrapT = THREE.RepeatWrapping;
-  sideWall.repeat.set(14, 5);
+  sideWall.repeat.set(2.3/0.1, 2.4/0.3);
 
   showerFloor.wrapS = THREE.RepeatWrapping;
   showerFloor.wrapT = THREE.RepeatWrapping;
-  showerFloor.repeat.set(4, 4);
+  showerFloor.repeat.set(1.2/0.3, 1.22/0.3);
 
   type = type.split("-")[0];
 
@@ -62,14 +62,16 @@ function setTexture(type) {
 
 function setWallTextureRepetition(type) {
   switch (type) {
+    case "wall-1":
+      return{x:3.4,y:2.4};
     case "wall-3":
-      return { x: 2, y: 4 };
+      return { x: 1.7, y: 2.4 };
     case "wall-3-top":
-      return { x: 1.5, y: 1 };
+      return { x: 0.9, y:0.3};
     case "wall-3-side":
-      return { x: 1.2, y: 4 };
+      return { x: 0.9, y: 2.4 };
     default:
-      return { x: 5, y: 4 };
+      return { x: 2.3, y: 2.4 };
   }
 }
 
