@@ -2,27 +2,17 @@ import React from "react";
 import { Wall, Floor, Ceiling, Plane } from "../Room";
 import { BathTub, Mirror, Tap, Vanity } from "../Products/roomTwo";
 import Door from "../Products/Door";
+import Window from "../Products/Window";
+import BlockExtrude from "../Room/BlockExtrude";
 
 function DesignTwo({ mode }) {
   let height = mode === "VR" ? 0 : -1.2;
   let wall = [
     {
-      position: [0, 1.3, -1.5],
-      rotation: [0, 0, 0],
-      scale: [3.5, 2.6, 0.1],
-      type: "wall-1",
-    },
-    {
       position: [1.75, 1.3, 0],
       rotation: [0, 0, 0],
       scale: [0.1, 2.6, 3],
       type: "wall-2",
-    },
-    {
-      position: [0, 1.3, 1.5],
-      rotation: [0, 0, 0],
-      scale: [-3.5, 2.6, 0.1],
-      type: "wall-3",
     },
     {
       position: [-1.75, 1.3, 0],
@@ -62,9 +52,20 @@ function DesignTwo({ mode }) {
           type="floor"
         />
 
-        <Plane />
+        <BlockExtrude
+          value={1.25}
+          position={[-1.7, 0, -1.5]}
+          height={2.6}
+          width={3.4}
+        />
+        <BlockExtrude
+          value={0}
+          position={[-1.7, 0, 1.5]}
+          height={2.6}
+          width={3.4}
+        />
 
-        <Door position={[0, 0, 1.6]} rotation={[0, 0, 0]} scale={[1, 1, 2]} />
+        <Plane />
 
         <Vanity position={[-1.7, -0.12, 0.012]} rotation={[0, 1.5, 0]} />
 
@@ -81,6 +82,12 @@ function DesignTwo({ mode }) {
           rotation={[0, 1.6, 0]}
           scale={[1, 1, 1]}
         />
+        <Door position={[-0.4, 0, 1.5]} rotation={[0, 3.14, 0]} />
+        <Window
+          scale={[0.95, 0.95, 2]}
+          position={[-0.4, 1.24, -1.49]}
+          rotation={[0, 3.14, 0]}
+        />
       </group>
 
       <directionalLight intensity={0.5} position={[6, 2, 1]} />
@@ -89,7 +96,7 @@ function DesignTwo({ mode }) {
 
       <pointLight
         intensity={8}
-        position={[0, 2.6, 0]}
+        position={[0, 2.3, 0]}
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
         shadow-bias={-0.00001}

@@ -1,5 +1,8 @@
 import React from "react";
 import { Wall, Floor, Ceiling, Glass, Plane } from "../Room";
+import BlockExtrude from "../Room/BlockExtrude";
+import Door from "../Products/Door";
+import Window from "../Products/Window";
 import {
   Basin,
   BathTub,
@@ -15,42 +18,16 @@ import {
   Vanity,
   WallPipe,
   WallTopAssemblies,
-  Door,
-  Window,
 } from "../Products/roomThree";
 
 function DesignThree({ mode }) {
   let height = mode === "VR" ? 0 : -1.2;
   let wall = [
     {
-      position: [0, 1.2, -1.15],
-      rotation: [0, 0, 0],
-      scale: [3.4, 2.4, 0.1],
-      type: "wall-1",
-    },
-    {
       position: [1.7, 1.2, 0],
       rotation: [0, 0, 0],
       scale: [0.1, 2.4, 2.3],
       type: "sideWall",
-    },
-    {
-      position: [0.9, 1.2, 1.15],
-      rotation: [0, 0, 0],
-      scale: [-1.7, 2.4, 0.1],
-      type: "wall-3",
-    },
-    {
-      position: [-0.4, 2.25, 1.15],
-      rotation: [0, 0, 0],
-      scale: [-0.9, 0.3, 0.1],
-      type: "wall-3-top",
-    },
-    {
-      position: [-1.3, 1.2, 1.15],
-      rotation: [0, 0, 0],
-      scale: [-0.9, 2.4, 0.1],
-      type: "wall-3-side",
     },
     {
       position: [-1.7, 1.2, 0],
@@ -88,6 +65,18 @@ function DesignThree({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.4, 0.1, -2.3]}
           type="floor"
+        />
+        <BlockExtrude
+          value={1.25}
+          position={[-1.7, 0, -1.15]}
+          height={2.35}
+          width={3.4}
+        />
+        <BlockExtrude
+          value={0}
+          position={[-1.7, 0, 1.1]}
+          height={2.35}
+          width={3.4}
         />
 
         <Plane />
@@ -145,16 +134,22 @@ function DesignThree({ mode }) {
         </group>
         <Door position={[-0.4, 0, 1.09]} rotation={[0, 3.14, 0]} />
 
-        <Window position={[-0.4, 1.2, -1.12]} rotation={[0, 3.14, 0]} />
+        <Window position={[-0.4, 1.2, -1.11]} rotation={[0, 3.14, 0]} />
       </group>
 
-      <directionalLight intensity={0.9} position={[6, 2, 1]} />
+      <directionalLight
+        castShadow
+        receiveShadow
+        intensity={2}
+        position={[1.5, 1.1, -6]}
+        color="#FFFFCC"
+      />
 
-      <ambientLight intensity={0.1} />
+      <ambientLight intensity={1} />
 
       <pointLight
         intensity={8}
-        position={[0, 2.4, 0]}
+        position={[0, 2.3, 0]}
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
         shadow-bias={-0.00001}

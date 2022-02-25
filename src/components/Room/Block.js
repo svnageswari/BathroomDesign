@@ -7,6 +7,8 @@ function Block({ position, rotation, scale, type, color }) {
   let [opacity, transparent] = type === "glass" ? [0.5, true] : [1, false];
   let [castShadow, receiveShadow] =
     type === "glass" || type === "ceiling" ? [false, false] : [true, true];
+  let roughness = setRoughness(type);
+  let normals = setNormals(type);
 
   return (
     <group position={position} rotation={rotation} scale={scale}>
@@ -21,10 +23,55 @@ function Block({ position, rotation, scale, type, color }) {
           color={color}
           transparent={transparent}
           opacity={opacity}
+          normalMap={normals}
+          roughnessMap={roughness}
         />
       </Box>
     </group>
   );
+}
+
+function setRoughness(type) {
+  const wallRoughness = new THREE.TextureLoader().load("assets/wallRough.png");
+  const floorRoughness = new THREE.TextureLoader().load(
+    "assets/floorRough.png"
+  );
+  const sideWallRoughness = new THREE.TextureLoader().load(
+    "assets/sideWallRough.png"
+  );
+  const showerFloorRoughness = new THREE.TextureLoader().load(
+    "assets/showerFloorRough.png"
+  );
+  
+  wallRoughness.wrapS = THREE.RepeatWrapping;
+  wallRoughness.wrapT = THREE.RepeatWrapping;
+  wallRoughness.repeat.set(2.3 / 0.306, 2.4 / 0.306);
+
+  floorRoughness.wrapS = THREE.RepeatWrapping;
+  floorRoughness.wrapT = THREE.RepeatWrapping;
+  floorRoughness.repeat.set(3.4 / 0.6, 2.3 / 0.6);
+  
+  sideWallRoughness.wrapS = THREE.RepeatWrapping;
+  sideWallRoughness.wrapT = THREE.RepeatWrapping;
+  sideWallRoughness.repeat.set(2.3 / 0.1, 2.4 / 0.3);
+
+  showerFloorRoughness.wrapS = THREE.RepeatWrapping;
+  showerFloorRoughness.wrapT = THREE.RepeatWrapping;
+  showerFloorRoughness.repeat.set(1.2 / 0.3, 1.22 / 0.3);
+
+  type = type.split("-")[0];
+  switch (type) {
+    case "wall":
+      return wallRoughness;
+    case "floor":
+      return floorRoughness;
+    case "sideWall":
+      return sideWallRoughness;
+    case "showerFloor":
+      return showerFloorRoughness;
+    default:
+      return null;
+  }
 }
 
 function setTexture(type) {
@@ -32,11 +79,10 @@ function setTexture(type) {
   const floor = new THREE.TextureLoader().load("assets/floor.png");
   const sideWall = new THREE.TextureLoader().load("assets/SideWall.jpg");
   const showerFloor = new THREE.TextureLoader().load("assets/ShowerFloor.jpg");
-  const { x, y } = setWallTextureRepetition(type);
 
   wall.wrapS = THREE.RepeatWrapping;
   wall.wrapT = THREE.RepeatWrapping;
-  wall.repeat.set(x / 0.306, y / 0.306);
+  wall.repeat.set(2.3 / 0.306, 2.4 / 0.306);
 
   floor.wrapS = THREE.RepeatWrapping;
   floor.wrapT = THREE.RepeatWrapping;
@@ -66,18 +112,37 @@ function setTexture(type) {
   }
 }
 
-function setWallTextureRepetition(type) {
+function setNormals(type) {
+  const wallNormal = new THREE.TextureLoader().load("assets/wallNormal.png");
+  const sideWallNormal = new THREE.TextureLoader().load(
+    "assets/sideWallNormal.png"
+  );
+  const showerFloorNormal = new THREE.TextureLoader().load(
+    "assets/showerFloorNormal.png"
+  );
+
+  wallNormal.wrapS = THREE.RepeatWrapping;
+  wallNormal.wrapT = THREE.RepeatWrapping;
+  wallNormal.repeat.set(2.3 / 0.306, 2.4 / 0.306);
+
+  sideWallNormal.wrapS = THREE.RepeatWrapping;
+  sideWallNormal.wrapT = THREE.RepeatWrapping;
+  sideWallNormal.repeat.set(2.3 / 0.1, 2.4 / 0.3);
+
+  showerFloorNormal.wrapS = THREE.RepeatWrapping;
+  showerFloorNormal.wrapT = THREE.RepeatWrapping;
+  showerFloorNormal.repeat.set(1.2 / 0.3, 1.22 / 0.3);
+  type = type.split("-")[0];
+
   switch (type) {
-    case "wall-1":
-      return { x: 3.4, y: 2.4 };
-    case "wall-3":
-      return { x: 1.7, y: 2.4 };
-    case "wall-3-top":
-      return { x: 0.9, y: 0.3 };
-    case "wall-3-side":
-      return { x: 0.9, y: 2.4 };
+    case "wall":
+      return wallNormal;
+    case "sideWall":
+      return sideWallNormal;
+    case "showerFloor":
+      return showerFloorNormal;
     default:
-      return { x: 2.3, y: 2.4 };
+      return null;
   }
 }
 

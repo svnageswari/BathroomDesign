@@ -3,9 +3,9 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Window({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/model/roomThree/window.glb");
+  const { nodes, materials } = useGLTF("/model/window.glb");
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group castShadow receiveShadow ref={group} {...props} dispose={null}>
       <primitive object={nodes["100_000_R"]} />
       <primitive object={nodes["100_000_L"]} />
       <primitive object={nodes["100_100_R"]} />
@@ -30,4 +30,4 @@ export default function Window({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/window.glb");
+useGLTF.preload("/model/window.glb");
