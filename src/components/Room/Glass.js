@@ -1,9 +1,18 @@
+import { Box } from "@react-three/drei";
 import React from "react";
-import Block from "./Block";
 
-function Glass({ position, rotation, scale, type, color }) {
+function Glass({ position, rotation, scale, color }) {
   return (
-    <Block position={position} rotation={rotation} scale={scale} type={type} color={color}/>
+    <group position={position} rotation={rotation} scale={scale}>
+      <Box args={[1, 1, 1]}>
+        <meshPhysicalMaterial
+          attach="material"
+          color={color}
+          transparent={true}
+          opacity={0.5}
+        />
+      </Box>
+    </group>
   );
 }
 

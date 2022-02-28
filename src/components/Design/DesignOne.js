@@ -1,4 +1,5 @@
 import React from "react";
+import { designOneWall as wall } from "../../data/wallData";
 import { Wall, Floor, Ceiling, Glass, Plane } from "../Room";
 import {
   Toilet,
@@ -11,39 +12,14 @@ import {
 import Door from "../Products/Door";
 
 function DesignOne({ mode }) {
-  let height = mode === "VR" ? 0 : -1.2;
-  let wall = [
-    {
-      position: [0, 1.2, -2],
-      rotation: [0, 0, 0],
-      scale: [5, 2.4, 0.1],
-      type: "wall-1",
-    },
-    {
-      position: [2.5, 1.2, 0],
-      rotation: [0, 0, 0],
-      scale: [0.1, 2.4, 4],
-      type: "wall-2",
-    },
-    {
-      position: [0, 1.2, 2],
-      rotation: [0, 0, 0],
-      scale: [-5, 2.4, 0.1],
-      type: "wall-3",
-    },
-    {
-      position: [-2.5, 1.2, 0],
-      rotation: [0, 0, 0],
-      scale: [0.1, 2.4, -4],
-      type: "wall-4",
-    },
-  ];
+  const height = mode === "VR" ? 0 : -1.2;
 
   return (
     <>
       <group position={[0, height, 0]}>
         {wall.map((element) => {
-          const { position, rotation, scale, type } = element;
+          const { position, rotation, scale, tileRepetitionCoordinates, type } =
+            element;
 
           return (
             <Wall
@@ -51,6 +27,7 @@ function DesignOne({ mode }) {
               position={position}
               rotation={rotation}
               scale={scale}
+              tileRepetitionCoordinates={tileRepetitionCoordinates}
               type={type}
             />
           );
@@ -60,13 +37,13 @@ function DesignOne({ mode }) {
           position={[0, 2.4, 0]}
           rotation={[0, 0, 0]}
           scale={[-5, 0.1, -4]}
-          type="ceiling"
         />
 
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
           scale={[-5, 0.1, -4]}
+          tileRepetitionCoordinates={{ x: 5, y: 4 }}
           type="floor"
         />
 
@@ -90,7 +67,6 @@ function DesignOne({ mode }) {
           position={[-0.9, 1.2, -1]}
           rotation={[0, 0, 0]}
           scale={[0.01, 2.4, 2]}
-          type="glass"
           color="#606d62"
         />
       </group>

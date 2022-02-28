@@ -1,4 +1,5 @@
 import React from "react";
+import { designTwoWall as wall } from "../../data/wallData";
 import { Wall, Floor, Ceiling, Plane } from "../Room";
 import { BathTub, Mirror, Tap, Vanity } from "../Products/roomTwo";
 import Door from "../Products/Door";
@@ -6,33 +7,21 @@ import Window from "../Products/Window";
 import BlockExtrude from "../Room/BlockExtrude";
 
 function DesignTwo({ mode }) {
-  let height = mode === "VR" ? 0 : -1.2;
-  let wall = [
-    {
-      position: [1.75, 1.3, 0],
-      rotation: [0, 0, 0],
-      scale: [0.1, 2.6, 3],
-      type: "wall-2",
-    },
-    {
-      position: [-1.75, 1.3, 0],
-      rotation: [0, 0, 0],
-      scale: [0.1, 2.6, -3],
-      type: "wall-4",
-    },
-  ];
+  const height = mode === "VR" ? 0 : -1.2;
 
   return (
     <>
       <group position={[0, height, 0]}>
         {wall.map((element) => {
-          const { position, rotation, scale, type } = element;
+          const { position, rotation, scale, tileRepetitionCoordinates, type } =
+            element;
           return (
             <Wall
               key={type}
               position={position}
               rotation={rotation}
               scale={scale}
+              tileRepetitionCoordinates={tileRepetitionCoordinates}
               type={type}
             />
           );
@@ -42,13 +31,13 @@ function DesignTwo({ mode }) {
           position={[0, 2.6, 0]}
           rotation={[0, 0, 0]}
           scale={[-3.5, 0.1, -3]}
-          type="ceiling"
         />
 
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
           scale={[-3.5, 0.1, -3]}
+          tileRepetitionCoordinates={{ x: 3.5, y: 3 }}
           type="floor"
         />
 
@@ -57,12 +46,17 @@ function DesignTwo({ mode }) {
           position={[-1.7, 0, -1.5]}
           height={2.6}
           width={3.4}
+          tileRepetitionCoordinates={{ x: 0.9, y: 1 }}
+          type="wall"
         />
+
         <BlockExtrude
           value={0}
           position={[-1.7, 0, 1.5]}
           height={2.6}
           width={3.4}
+          tileRepetitionCoordinates={{ x: 0.9, y: 1 }}
+          type="wall"
         />
 
         <Plane />

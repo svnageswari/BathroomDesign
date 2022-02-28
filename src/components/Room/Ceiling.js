@@ -1,9 +1,13 @@
+import { Box } from "@react-three/drei";
 import React from "react";
-import Block from "./Block";
 
-function Ceiling({ position, rotation, scale, type, color }) {
+function Ceiling({ position, rotation, scale }) {
   return (
-    <Block position={position} rotation={rotation} scale={scale} type={type} color={color}/>
+    <group position={position} rotation={rotation} scale={scale}>
+      <Box args={[1, 1, 1]}>
+        <meshStandardMaterial attach="material" />
+      </Box>
+    </group>
   );
 }
 

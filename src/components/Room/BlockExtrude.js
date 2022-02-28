@@ -1,26 +1,34 @@
 import React from "react";
 import { Extrude } from "@react-three/drei";
+import blockData from "../../data/blockData";
+import setMapValue from "../../utils/blockMap";
 import * as THREE from "three";
 
-const extrudeSettings = { steps: 1, depth: 0.05, bevelEnabled: false };
+function BlockExtrude({
+  value: holeValue,
+  position,
+  height,
+  width,
+  tileRepetitionCoordinates,
+  type,
+}) {
+  const extrudeSettings = { steps: 1, depth: 0.05, bevelEnabled: false };
+  const map = setMapValue(
+    blockData[type].texture,
+    tileRepetitionCoordinates,
+    type
+  );
+  const roughnessMap = setMapValue(
+    blockData[type].roughness,
+    tileRepetitionCoordinates,
+    type
+  );
+  const normalMap = setMapValue(
+    blockData[type].normals,
+    tileRepetitionCoordinates,
+    type
+  );
 
-const wallRoughness = new THREE.TextureLoader().load("assets/wallRough.png");
-const wallNormal = new THREE.TextureLoader().load("assets/wallNormal.png");
-const wall = new THREE.TextureLoader().load("assets/wall.jpeg");
-
-wall.wrapS = THREE.RepeatWrapping;
-wall.wrapT = THREE.RepeatWrapping;
-wall.repeat.set(0.9 / 0.306, 1 / 0.306);
-
-wallRoughness.wrapS = THREE.RepeatWrapping;
-wallRoughness.wrapT = THREE.RepeatWrapping;
-wallRoughness.repeat.set(0.9 / 0.306, 1 / 0.306);
-
-wallNormal.wrapS = THREE.RepeatWrapping;
-wallNormal.wrapT = THREE.RepeatWrapping;
-wallNormal.repeat.set(0.9 / 0.306, 1 / 0.306);
-
-function BlockExtrude({ value: holeValue, position, height, width }) {
   const shape = React.useMemo(() => {
     const rectShape = new THREE.Shape()
       .moveTo(0, 0)
@@ -29,7 +37,6 @@ function BlockExtrude({ value: holeValue, position, height, width }) {
       .lineTo(width, 0)
       .lineTo(0, 0);
 
-    // Holes
     const hole = new THREE.Path()
       .moveTo(0.85, 0.6)
       .lineTo(0.85, 1.95)
@@ -38,22 +45,18 @@ function BlockExtrude({ value: holeValue, position, height, width }) {
       .lineTo(0.85, holeValue);
     rectShape.holes.push(hole);
     return rectShape;
-  }, []);
+  }, [height, holeValue, width]);
 
   return (
     <>
       <group position={position}>
-        <Extrude
-          args={[shape, extrudeSettings]}
-          castShadow
-          receiveShadow
-        >
+        <Extrude args={[shape, extrudeSettings]} castShadow receiveShadow>
           <meshStandardMaterial
             attach="material"
             color="white"
-            map={wall}
-            normalMap={wallNormal}
-            roughnessMap={wallRoughness}
+            map={map}
+            normalMap={normalMap}
+            roughnessMap={roughnessMap}
           />
           <ambientLight intensity={0.3} />
         </Extrude>

@@ -1,4 +1,5 @@
 import React from "react";
+import { designThreeWall as wall } from "../../data/wallData";
 import { Wall, Floor, Ceiling, Glass, Plane } from "../Room";
 import BlockExtrude from "../Room/BlockExtrude";
 import Door from "../Products/Door";
@@ -21,33 +22,21 @@ import {
 } from "../Products/roomThree";
 
 function DesignThree({ mode }) {
-  let height = mode === "VR" ? 0 : -1.2;
-  let wall = [
-    {
-      position: [1.7, 1.2, 0],
-      rotation: [0, 0, 0],
-      scale: [0.1, 2.4, 2.3],
-      type: "sideWall",
-    },
-    {
-      position: [-1.7, 1.2, 0],
-      rotation: [0, 0, 0],
-      scale: [0.1, 2.4, -2.3],
-      type: "wall-4",
-    },
-  ];
+  const height = mode === "VR" ? 0 : -1.2;
 
   return (
     <>
       <group position={[0, height, 0]}>
         {wall.map((element) => {
-          const { position, rotation, scale, type } = element;
+          const { position, rotation, scale, tileRepetitionCoordinates, type } =
+            element;
           return (
             <Wall
               key={type}
               position={position}
               rotation={rotation}
               scale={scale}
+              tileRepetitionCoordinates={tileRepetitionCoordinates}
               type={type}
             />
           );
@@ -57,26 +46,32 @@ function DesignThree({ mode }) {
           position={[0, 2.4, 0]}
           rotation={[0, 0, 0]}
           scale={[-3.4, 0.1, -2.3]}
-          type="ceiling"
         />
 
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
           scale={[-3.4, 0.1, -2.3]}
+          tileRepetitionCoordinates={{ x: 3.4, y: 2.3 }}
           type="floor"
         />
+
         <BlockExtrude
           value={1.25}
           position={[-1.7, 0, -1.15]}
           height={2.35}
           width={3.4}
+          tileRepetitionCoordinates={{ x: 0.9, y: 1 }}
+          type="wall"
         />
+
         <BlockExtrude
           value={0}
           position={[-1.7, 0, 1.1]}
           height={2.35}
           width={3.4}
+          tileRepetitionCoordinates={{ x: 0.9, y: 1 }}
+          type="wall"
         />
 
         <Plane />
@@ -121,7 +116,6 @@ function DesignThree({ mode }) {
             position={[0.5, 0.951, -0.54]}
             rotation={[0, 0, 0]}
             scale={[0.01, 1.9, 1.2]}
-            type="glass"
             color="#606d62"
           />
 
@@ -129,6 +123,7 @@ function DesignThree({ mode }) {
             position={[1.1, 0.005, -0.54]}
             rotation={[0, 0, 0]}
             scale={[1.2, 0, 1.22]}
+            tileRepetitionCoordinates={{ x: 1.2, y: 1.22 }}
             type="showerFloor"
           />
         </group>
@@ -138,8 +133,6 @@ function DesignThree({ mode }) {
       </group>
 
       <directionalLight
-        castShadow
-        receiveShadow
         intensity={2}
         position={[1.5, 1.1, -6]}
         color="#FFFFCC"
