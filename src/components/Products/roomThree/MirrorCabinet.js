@@ -31,12 +31,13 @@ export default function MirrorCabinet({ ...props }) {
         receiveShadow
         geometry={nodes.Reece_Mirror_Kado_Lussi_Mirror_Cabinet_Type_2.geometry}
       >
-        <MeshReflectorMaterial
+        {/* <MeshReflectorMaterial
           mirror={1}
           resolution={1024}
           transparent={false}
           reflectorOffset={0.162}
-        ></MeshReflectorMaterial>
+        ></MeshReflectorMaterial> */}
+        <meshStandardMaterial metalness={1} roughness={0.15} />
       </mesh>
 
       {mirrorCabinet.map((item) => {

@@ -77,10 +77,12 @@ function DesignOne({ mode }) {
 
       <pointLight
         intensity={8}
-        position={[0, 2.4, 0]}
+        position={[0, 2.3, 0]}
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
-        shadow-bias={-0.00001}
+        shadow-bias={-0.00003}
+        shadow-radius={5}
+        shadow-normalBias={0.0005}
         castShadow={true}
       />
     </>

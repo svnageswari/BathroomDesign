@@ -29,12 +29,13 @@ export default function Mirror({ ...props }) {
             .geometry
         }
       >
-        <MeshReflectorMaterial
+        {/* <MeshReflectorMaterial
           mirror={1}
           resolution={1024}
           transparent={false}
           reflectorOffset={0.162}
-        ></MeshReflectorMaterial>
+        ></MeshReflectorMaterial> */}
+        <meshStandardMaterial metalness={1} roughness={0.15} />
       </mesh>
 
       {mirror.map((item) => {

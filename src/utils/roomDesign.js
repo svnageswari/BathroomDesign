@@ -1,4 +1,4 @@
-import { DesignOne, DesignTwo, DesignThree } from "../components/Design";
+import { DesignOne, DesignTwo, DesignThree, DesignFour } from "../components/Design";
 
 function getDesignComponent(design, mode) {
   switch (design) {
@@ -8,6 +8,8 @@ function getDesignComponent(design, mode) {
       return <DesignTwo mode={mode}/>;
     case "Design_3":
       return <DesignThree mode={mode}/>;
+    case "Design_4":
+      return <DesignFour mode={mode}/>;  
     default:
       return <DesignOne mode={mode}/>;
   }

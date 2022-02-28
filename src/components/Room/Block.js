@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Box } from "@react-three/drei";
 import blockData from "../../data/blockData";
 import setMapValue from "../../utils/blockMap";
@@ -20,15 +20,18 @@ function Block({ position, rotation, scale, tileRepetitionCoordinates, type }) {
     tileRepetitionCoordinates,
     type
   );
+  const material = useMemo(() => {
+    return { map, roughnessMap, normalMap };
+  }, [map, roughnessMap, normalMap]);
 
   return (
     <group position={position} rotation={rotation} scale={scale}>
       <Box args={[1, 1, 1]} castShadow receiveShadow>
         <meshStandardMaterial
           attach="material"
-          map={map}
-          normalMap={normalMap}
-          roughnessMap={roughnessMap}
+          map={material.map}
+          normalMap={material.normalMap}
+          roughnessMap={material.roughnessMap}
         />
       </Box>
     </group>

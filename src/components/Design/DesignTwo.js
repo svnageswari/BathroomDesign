@@ -61,7 +61,7 @@ function DesignTwo({ mode }) {
 
         <Plane />
 
-        <Vanity position={[-1.7, -0.12, 0.012]} rotation={[0, 1.5, 0]} />
+        <Vanity position={[-1.7, -0.12, 0.012]} rotation={[0, 1.55, 0]} />
 
         <Tap
           position={[1.7, 0.85, 0.2]}
@@ -69,7 +69,7 @@ function DesignTwo({ mode }) {
           scale={[1, 1, 1]}
         />
 
-        <Mirror position={[-1.75, 0.803, 0.02]} rotation={[0, 1.5, 0]} />
+        <Mirror position={[-1.75, 0.803, 0.02]} rotation={[0, 1.55, 0]} />
 
         <BathTub
           position={[1.25, 0.001, 0.1]}
@@ -93,7 +93,9 @@ function DesignTwo({ mode }) {
         position={[0, 2.3, 0]}
         shadow-mapSize-width={2048}
         shadow-mapSize-height={2048}
-        shadow-bias={-0.00001}
+        shadow-bias={-0.00003}
+        shadow-radius={5}
+        shadow-normalBias={0.0005}
         castShadow={true}
       />
     </>

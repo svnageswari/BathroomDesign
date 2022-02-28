@@ -4,6 +4,7 @@ import { ARCanvas } from "@react-three/xr";
 import { useLocation } from "react-router-dom";
 import { ACESFilmicToneMapping } from "three";
 import getDesignComponent from "../../utils/roomDesign";
+import env from "../../assets/warehouse.hdr";
 
 function ARMode() {
   useEffect(() => {
@@ -40,17 +41,21 @@ function ARMode() {
         onCreated={({ gl }) => Object.assign(gl, glLightingConfig)}
       >
         <Suspense fallback={null}>
-          <Environment preset="warehouse" />
-
-          <Sky
-            distance={450000}
-            sunPosition={[0, 1, 0]}
-            inclination={0}
-            azimuth={0.25}
+          <Environment
+            background={false}
+            files={env}
+            preset={null}
+            scene={undefined}
           />
 
-          <OrbitControls />
+          {/* <Sky
+          distance={450000}
+          sunPosition={[0, 1, 0]}
+          inclination={0}
+          azimuth={0.25}
+          /> */}
 
+          <OrbitControls />
           {getDesignComponent(design, "AR")}
         </Suspense>
       </ARCanvas>

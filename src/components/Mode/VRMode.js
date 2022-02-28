@@ -4,6 +4,7 @@ import { VRCanvas, DefaultXRControllers } from "@react-three/xr";
 import { useLocation } from "react-router-dom";
 import { ACESFilmicToneMapping } from "three";
 import getDesignComponent from "../../utils/roomDesign";
+import env from "../../assets/warehouse.hdr";
 
 function VRMode() {
   useEffect(() => {
@@ -40,8 +41,12 @@ function VRMode() {
         onCreated={({ gl }) => Object.assign(gl, glLightingConfig)}
       >
         <Suspense fallback={null}>
-          <Environment preset="warehouse" />
-
+          <Environment
+            background={false}
+            files={env}
+            preset={null}
+            scene={undefined}
+          />
           <Sky
             distance={450000}
             sunPosition={[0, 1, 0]}
@@ -50,10 +55,9 @@ function VRMode() {
           />
 
           <OrbitControls />
-
-          <DefaultXRControllers />
           {getDesignComponent(design, "VR")}
         </Suspense>
+        <DefaultXRControllers />
       </VRCanvas>
       <Loader />
     </>
