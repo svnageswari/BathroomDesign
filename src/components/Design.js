@@ -1,9 +1,7 @@
 import React from "react";
-import { designThreeWall as wall } from "../../data/wallData";
-import { Wall, Floor, Ceiling, Glass, Plane } from "../Room";
-import BlockExtrude from "../Room/BlockExtrude";
-import Door from "../Products/Door";
-import Window from "../Products/Window";
+import { wall } from "../data/wallData";
+import { Wall, Floor, Ceiling, Glass, Plane } from "./Room";
+import BlockExtrude from "./Room/BlockExtrude";
 import {
   Basin,
   BathTub,
@@ -19,9 +17,11 @@ import {
   Vanity,
   WallPipe,
   WallTopAssemblies,
-} from "../Products/roomThree";
+  Door,
+  Window,
+} from "./Products";
 
-function DesignThree({ mode }) {
+function Design({ mode }) {
   const height = mode === "VR" ? 0 : -1.2;
 
   return (
@@ -129,7 +129,7 @@ function DesignThree({ mode }) {
         <Door position={[-0.4, 0, 1.09]} rotation={[0, 3.14, 0]} />
 
         <Window position={[-0.4, 1.2, -1.11]} rotation={[0, 3.14, 0]} />
-        
+
         <pointLight
           intensity={8}
           position={[0, 2.2, 0]}
@@ -152,4 +152,4 @@ function DesignThree({ mode }) {
   );
 }
 
-export default DesignThree;
+export default Design;

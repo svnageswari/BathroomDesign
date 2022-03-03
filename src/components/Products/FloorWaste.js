@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function FloorWaste({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomThree/floorWaste.glb");
+  const { nodes } = useGLTF("/model/products/floorWaste.glb");
   const { materials } = useGLTF("/model/materials/metalSteel.glb");
 
   return (
@@ -18,4 +18,4 @@ export default function FloorWaste({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/floorWaste.glb");
+useGLTF.preload("/model/products/floorWaste.glb");

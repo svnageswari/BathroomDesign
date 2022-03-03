@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function BathTub({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomThree/bathTub.glb");
+  const { nodes } = useGLTF("/model/products/bathTub.glb");
   const { materials } = useGLTF("/model/materials/surfaceWhite.glb");
 
   return (
@@ -22,4 +22,4 @@ export default function BathTub({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/bathTub.glb");
+useGLTF.preload("/model/products/bathTub.glb");

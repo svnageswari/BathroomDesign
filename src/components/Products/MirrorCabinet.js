@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
-import { useGLTF, MeshReflectorMaterial } from "@react-three/drei";
-import ProductMesh from "../../ProductMesh";
+import { useGLTF } from "@react-three/drei";
+import ProductMesh from "../ProductMesh";
 
 export default function MirrorCabinet({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomThree/mirrorCabinet.glb");
+  const { nodes } = useGLTF("/model/products/mirrorCabinet.glb");
 
   const mirrorCabinet = [
     {
@@ -31,12 +31,6 @@ export default function MirrorCabinet({ ...props }) {
         receiveShadow
         geometry={nodes.Reece_Mirror_Kado_Lussi_Mirror_Cabinet_Type_2.geometry}
       >
-        {/* <MeshReflectorMaterial
-          mirror={1}
-          resolution={1024}
-          transparent={false}
-          reflectorOffset={0.162}
-        ></MeshReflectorMaterial> */}
         <meshStandardMaterial metalness={1} roughness={0.15} />
       </mesh>
 
@@ -47,4 +41,4 @@ export default function MirrorCabinet({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/mirrorCabinet.glb");
+useGLTF.preload("/model/products/mirrorCabinet.glb");

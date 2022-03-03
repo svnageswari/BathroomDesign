@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Basin({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomThree/basin.glb");
+  const { nodes } = useGLTF("/model/products/basin.glb");
   const { materials } = useGLTF("/model/materials/surfaceWhite.glb");
 
   return (
@@ -21,4 +21,4 @@ export default function Basin({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/basin.glb");
+useGLTF.preload("/model/products/basin.glb");

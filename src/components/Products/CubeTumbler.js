@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import ProductMesh from "../../ProductMesh";
+import ProductMesh from "../ProductMesh";
 
 export default function CubeTumbler({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomThree/cubeTumbler.glb");
+  const { nodes } = useGLTF("/model/products/cubeTumbler.glb");
 
   const cubeTumbler = [
     {
@@ -30,4 +30,4 @@ export default function CubeTumbler({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/cubeTumbler.glb");
+useGLTF.preload("/model/products/cubeTumbler.glb");

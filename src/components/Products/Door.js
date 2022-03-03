@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function Door({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/door.glb");
+  const { nodes } = useGLTF("/model/products/door.glb");
   return (
     <group ref={group} {...props} dispose={null}>
       <primitive object={nodes["100_000"]} />
@@ -33,4 +33,4 @@ export default function Door({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/door.glb");
+useGLTF.preload("/model/products/door.glb");

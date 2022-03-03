@@ -1,10 +1,9 @@
 import React, { useEffect, Suspense } from "react";
 import { Loader, Sky, Environment, OrbitControls } from "@react-three/drei";
 import { ARCanvas } from "@react-three/xr";
-import { useLocation } from "react-router-dom";
 import { ACESFilmicToneMapping } from "three";
-import getDesignComponent from "../../utils/roomDesign";
 import env from "../../assets/warehouse.hdr";
+import Design from "../Design";
 
 function ARMode() {
   useEffect(() => {
@@ -24,8 +23,6 @@ function ARMode() {
       window.location.reload();
     };
   }, []);
-
-  let design = useLocation().search.replace("?", "");
 
   let glLightingConfig = {
     toneMapping: ACESFilmicToneMapping,
@@ -51,7 +48,7 @@ function ARMode() {
           />
 
           <OrbitControls />
-          {getDesignComponent(design, "AR")}
+          <Design />
         </Suspense>
       </ARCanvas>
       <Loader />

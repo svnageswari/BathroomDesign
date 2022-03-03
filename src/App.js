@@ -1,6 +1,6 @@
 import React from "react";
-import Body from "./components/Body";
+import AppRoutes from "./components/Routes";
 
 export default function App() {
-  return <Body></Body>;
+  return <AppRoutes></AppRoutes>;
 }

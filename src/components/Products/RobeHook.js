@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function TowelRailTwo({ ...props }) {
+export default function RobeHook({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomThree/towelRailTwo.glb");
+  const { nodes } = useGLTF("/model/products/robeHook.glb");
   const { materials } = useGLTF("/model/materials/matteBlack.glb");
 
   return (
@@ -11,11 +11,11 @@ export default function TowelRailTwo({ ...props }) {
       <mesh
         castShadow
         receiveShadow
-        geometry={nodes.Reece_Towel_Rail_Mizu_Drift_Single_Type_5.geometry}
+        geometry={nodes.Reece_Accessory_Mizu_Soothe_Robe_Hook_Type_1.geometry}
         material={materials["Reece_Brass_Matte Black"]}
       ></mesh>
     </group>
   );
 }
 
-useGLTF.preload("/model/roomThree/towelRailTwo.glb");
+useGLTF.preload("/model/products/robeHook.glb");

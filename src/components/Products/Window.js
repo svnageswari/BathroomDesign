@@ -4,7 +4,7 @@ import { MeshPhysicalMaterial } from "three";
 
 export default function Window({ ...props }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF("/model/window.glb");
+  const { nodes, materials } = useGLTF("/model/products/window.glb");
   const glass = useMemo(() => {
     return new MeshPhysicalMaterial({
       transmission: 0.95,
@@ -35,4 +35,4 @@ export default function Window({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/window.glb");
+useGLTF.preload("/model/products/window.glb");

@@ -1,10 +1,10 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
-import ProductMesh from "../../ProductMesh";
+import ProductMesh from "../ProductMesh";
 
 export default function Vanity({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomTwo/vanity.glb");
+  const { nodes } = useGLTF("/model/products/vanity.glb");
 
   const vanity = [
     {
@@ -38,4 +38,4 @@ export default function Vanity({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomTwo/vanity.glb");
+useGLTF.preload("/model/products/vanity.glb");

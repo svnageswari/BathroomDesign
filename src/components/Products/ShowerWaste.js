@@ -3,7 +3,7 @@ import { useGLTF } from "@react-three/drei";
 
 export default function ShowerWaste({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomThree/insertWaste.glb");
+  const { nodes } = useGLTF("/model/products/insertWaste.glb");
   const { materials } = useGLTF("/model/materials/brassChrome.glb");
 
   return (
@@ -18,4 +18,4 @@ export default function ShowerWaste({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/insertWaste.glb");
+useGLTF.preload("/model/products/insertWaste.glb");

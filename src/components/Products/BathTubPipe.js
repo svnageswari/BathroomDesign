@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
-export default function TowelRailOne({ ...props }) {
+export default function BathtubPipe({ ...props }) {
   const group = useRef();
-  const { nodes } = useGLTF("/model/roomThree/towelRailOne.glb");
+  const { nodes } = useGLTF("/model/products/bathTubPipe.glb");
   const { materials } = useGLTF("/model/materials/matteBlack.glb");
 
   return (
@@ -12,9 +12,7 @@ export default function TowelRailOne({ ...props }) {
         castShadow
         receiveShadow
         geometry={
-          nodes
-            .Reece_Accessory_Kado_Lussi_MK2_Heated_Towel_Rail_Wall_Mounted_500_mm_x_1100_mm_Type_1
-            .geometry
+          nodes.Reece_Tap_Mizu_Drift_MK2_Bath_Floor_Mixer_Type_1.geometry
         }
         material={materials["Reece_Brass_Matte Black"]}
       ></mesh>
@@ -22,4 +20,4 @@ export default function TowelRailOne({ ...props }) {
   );
 }
 
-useGLTF.preload("/model/roomThree/towelRailOne.glb");
+useGLTF.preload("/model/products/bathTubPipe.glb");

@@ -1,10 +1,9 @@
 import React, { useEffect, Suspense } from "react";
 import { Loader, Sky, Environment, OrbitControls } from "@react-three/drei";
 import { VRCanvas, DefaultXRControllers } from "@react-three/xr";
-import { useLocation } from "react-router-dom";
 import { ACESFilmicToneMapping } from "three";
-import getDesignComponent from "../../utils/roomDesign";
 import env from "../../assets/warehouse.hdr";
+import Design from "../Design";
 
 function VRMode() {
   useEffect(() => {
@@ -24,8 +23,6 @@ function VRMode() {
       window.location.reload();
     };
   }, []);
-
-  let design = useLocation().search.replace("?", "");
 
   let glLightingConfig = {
     toneMapping: ACESFilmicToneMapping,
@@ -52,7 +49,7 @@ function VRMode() {
 
           <OrbitControls />
 
-          {getDesignComponent(design, "VR")}
+          <Design />
         </Suspense>
         <DefaultXRControllers />
       </VRCanvas>
