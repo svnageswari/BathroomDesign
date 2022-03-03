@@ -21,17 +21,16 @@ html {
   transition: all 500ms;
 }
 
-.design-class:hover
-{
+.design-class:hover {
   border: 2px solid #61dafb;
   background-color: #61dafb;
   transition: all 200ms;
 }
 
-#ARButton{
+#ARButton {
   display: none;
 }
 
-#VRButton{
+#VRButton {
   display: none;
 }

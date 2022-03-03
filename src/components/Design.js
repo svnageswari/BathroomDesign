@@ -51,7 +51,7 @@ function Design({ mode }) {
         <Floor
           position={[0, 0, 0]}
           rotation={[0, 0, 0]}
-          scale={[-3.4, 0.1, -2.3]}
+          scale={[-3.4, 0.1, -2.2]}
           tileRepetitionCoordinates={{ x: 3.4, y: 2.3 }}
           type="floor"
         />
@@ -143,7 +143,7 @@ function Design({ mode }) {
 
         <directionalLight
           castShadow
-          intensity={5}
+          intensity={2}
           position={[10, 2, -10]}
           color="#FFFFCC"
         />

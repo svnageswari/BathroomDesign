@@ -49,7 +49,7 @@ function VRMode() {
 
           <OrbitControls />
 
-          <Design />
+          <Design mode="VR"/>
         </Suspense>
         <DefaultXRControllers />
       </VRCanvas>

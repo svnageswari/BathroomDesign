@@ -11,16 +11,19 @@ function Block({ position, rotation, scale, tileRepetitionCoordinates, type }) {
     tileRepetitionCoordinates,
     type
   );
+
   const roughnessMap = setMapValue(
     blockData[type].roughness,
     tileRepetitionCoordinates,
     type
   );
+
   const normalMap = setMapValue(
     blockData[type].normals,
     tileRepetitionCoordinates,
     type
   );
+
   const material = useMemo(() => {
     return new MeshStandardMaterial({
       map,

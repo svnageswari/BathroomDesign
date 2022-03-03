@@ -48,7 +48,7 @@ function ARMode() {
           />
 
           <OrbitControls />
-          <Design />
+          <Design mode="AR"/>
         </Suspense>
       </ARCanvas>
       <Loader />
