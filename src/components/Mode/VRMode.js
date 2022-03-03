@@ -41,12 +41,8 @@ function VRMode() {
         onCreated={({ gl }) => Object.assign(gl, glLightingConfig)}
       >
         <Suspense fallback={null}>
-          <Environment
-            background={false}
-            files={env}
-            preset={null}
-            scene={undefined}
-          />
+          <Environment background={false} files={env} />
+
           <Sky
             distance={450000}
             sunPosition={[0, 1, 0]}
@@ -55,6 +51,7 @@ function VRMode() {
           />
 
           <OrbitControls />
+
           {getDesignComponent(design, "VR")}
         </Suspense>
         <DefaultXRControllers />

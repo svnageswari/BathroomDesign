@@ -1,9 +1,16 @@
-import React, { useRef } from "react";
+import React, { useMemo, useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import { MeshPhysicalMaterial } from "three";
 
 export default function Window({ ...props }) {
   const group = useRef();
   const { nodes, materials } = useGLTF("/model/window.glb");
+  const glass = useMemo(() => {
+    return new MeshPhysicalMaterial({
+      transmission: 0.95,
+      roughness: 0,
+    });
+  }, []);
   return (
     <group castShadow receiveShadow ref={group} {...props} dispose={null}>
       <primitive object={nodes["100_000_R"]} />
@@ -20,10 +27,8 @@ export default function Window({ ...props }) {
         skeleton={nodes["Window-model"].skeleton}
       />
       <skinnedMesh
-        castShadow
-        receiveShadow
         geometry={nodes["Window-pane_noshadow"].geometry}
-        material={materials.Glass}
+        material={glass}
         skeleton={nodes["Window-pane_noshadow"].skeleton}
       />
     </group>

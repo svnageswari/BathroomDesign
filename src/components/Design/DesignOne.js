@@ -67,24 +67,26 @@ function DesignOne({ mode }) {
           position={[-0.9, 1.2, -1]}
           rotation={[0, 0, 0]}
           scale={[0.01, 2.4, 2]}
-          color="#606d62"
+        />
+
+        <directionalLight
+          castShadow
+          intensity={5}
+          position={[10, 2, -10]}
+          color="#FFFFCC"
+        />
+
+        <pointLight
+          intensity={8}
+          position={[0, 2.3, 0]}
+          shadow-mapSize-width={2048}
+          shadow-mapSize-height={2048}
+          shadow-bias={-0.00003}
+          shadow-radius={5}
+          shadow-normalBias={0.0005}
+          castShadow={true}
         />
       </group>
-
-      <directionalLight intensity={0.5} position={[6, 2, 1]} />
-
-      <ambientLight intensity={0.1} />
-
-      <pointLight
-        intensity={8}
-        position={[0, 2.3, 0]}
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
-        shadow-bias={-0.00003}
-        shadow-radius={5}
-        shadow-normalBias={0.0005}
-        castShadow={true}
-      />
     </>
   );
 }

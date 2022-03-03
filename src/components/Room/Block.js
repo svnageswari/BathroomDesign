@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { Box } from "@react-three/drei";
 import blockData from "../../data/blockData";
 import setMapValue from "../../utils/blockMap";
+import { MeshStandardMaterial } from "three";
 
 function Block({ position, rotation, scale, tileRepetitionCoordinates, type }) {
   type = type.split("-")[0];
@@ -21,19 +22,16 @@ function Block({ position, rotation, scale, tileRepetitionCoordinates, type }) {
     type
   );
   const material = useMemo(() => {
-    return { map, roughnessMap, normalMap };
+    return new MeshStandardMaterial({
+      map,
+      roughnessMap,
+      normalMap,
+    });
   }, [map, roughnessMap, normalMap]);
 
   return (
     <group position={position} rotation={rotation} scale={scale}>
-      <Box args={[1, 1, 1]} castShadow receiveShadow>
-        <meshStandardMaterial
-          attach="material"
-          map={material.map}
-          normalMap={material.normalMap}
-          roughnessMap={material.roughnessMap}
-        />
-      </Box>
+      <Box args={[1, 1, 1]} material={material} castShadow receiveShadow></Box>
     </group>
   );
 }

@@ -45,7 +45,7 @@ function DesignThree({ mode }) {
         <Ceiling
           position={[0, 2.4, 0]}
           rotation={[0, 0, 0]}
-          scale={[-3.4, 0.1, -2.3]}
+          scale={[3.4, 0.1, 2.3]}
         />
 
         <Floor
@@ -76,7 +76,7 @@ function DesignThree({ mode }) {
 
         <Plane />
 
-        <group position={[0.05, -0.1, -0.1]}>
+        <group position={[0.05, 0.15, -0.1]}>
           <Basin position={[-1.55, 0.72, 0.5]} rotation={[0, 1.6, 0]} />
 
           <CubeTumbler position={[-1.699, 1, 0.77]} rotation={[0, 1.6, 0]} />
@@ -101,7 +101,7 @@ function DesignThree({ mode }) {
         </group>
 
         <group position={[0, 0.05, 0.05]}>
-          <ShowerWaste position={[1.3, 0.02, -0.8]} rotation={[0, 0, 0]} />
+          <ShowerWaste position={[1.3, 0.01, -0.8]} rotation={[0, 0, 0]} />
 
           <ShowerPipe position={[1, 1.75, -1.145]} rotation={[0, 0, 0]} />
 
@@ -116,13 +116,12 @@ function DesignThree({ mode }) {
             position={[0.5, 0.951, -0.54]}
             rotation={[0, 0, 0]}
             scale={[0.01, 1.9, 1.2]}
-            color="#606d62"
           />
 
           <Floor
-            position={[1.1, 0.005, -0.54]}
+            position={[1.1, -0.049, -0.54]}
             rotation={[0, 0, 0]}
-            scale={[1.2, 0, 1.22]}
+            scale={[1.2, 0.1, 1.22]}
             tileRepetitionCoordinates={{ x: 1.2, y: 1.22 }}
             type="showerFloor"
           />
@@ -130,26 +129,25 @@ function DesignThree({ mode }) {
         <Door position={[-0.4, 0, 1.09]} rotation={[0, 3.14, 0]} />
 
         <Window position={[-0.4, 1.2, -1.11]} rotation={[0, 3.14, 0]} />
+        
+        <pointLight
+          intensity={8}
+          position={[0, 2.2, 0]}
+          shadow-mapSize-width={2048}
+          shadow-mapSize-height={2048}
+          shadow-bias={-0.00003}
+          shadow-radius={5}
+          shadow-normalBias={0.0005}
+          castShadow={true}
+        />
+
+        <directionalLight
+          castShadow
+          intensity={5}
+          position={[10, 2, -10]}
+          color="#FFFFCC"
+        />
       </group>
-
-      <directionalLight
-        intensity={2}
-        position={[1.5, 1.1, -6]}
-        color="#FFFFCC"
-      />
-
-      <ambientLight intensity={1} />
-
-      <pointLight
-        intensity={8}
-        position={[0, 2.3, 0]}
-        shadow-mapSize-width={2048}
-        shadow-mapSize-height={2048}
-        shadow-bias={-0.00003}
-        shadow-radius={5}
-        shadow-normalBias={0.0005}
-        castShadow={true}
-      />
     </>
   );
 }

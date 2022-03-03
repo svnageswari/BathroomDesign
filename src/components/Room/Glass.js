@@ -1,15 +1,17 @@
 import { Box } from "@react-three/drei";
 import React from "react";
 
-function Glass({ position, rotation, scale, color }) {
+function Glass({ position, rotation, scale }) {
   return (
     <group position={position} rotation={rotation} scale={scale}>
-      <Box args={[1, 1, 1]}>
+      <Box receiveShadow args={[1, 1, 1]}>
         <meshPhysicalMaterial
           attach="material"
-          color={color}
-          transparent={true}
-          opacity={0.5}
+          color="#99BCAB"
+          transmission={0.95}
+          roughness={0}
+          metalness={0}
+          envMapIntensity={0.9}
         />
       </Box>
     </group>

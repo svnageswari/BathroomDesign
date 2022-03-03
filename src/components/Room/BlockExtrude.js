@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { Extrude } from "@react-three/drei";
 import blockData from "../../data/blockData";
 import setMapValue from "../../utils/blockMap";
 import * as THREE from "three";
+import { MeshStandardMaterial } from "three";
 
 function BlockExtrude({
   value: holeValue,
@@ -18,18 +19,20 @@ function BlockExtrude({
     tileRepetitionCoordinates,
     type
   );
+
   const roughnessMap = setMapValue(
     blockData[type].roughness,
     tileRepetitionCoordinates,
     type
   );
+
   const normalMap = setMapValue(
     blockData[type].normals,
     tileRepetitionCoordinates,
     type
   );
 
-  const shape = React.useMemo(() => {
+  const shape = useMemo(() => {
     const rectShape = new THREE.Shape()
       .moveTo(0, 0)
       .lineTo(0, height)
@@ -47,19 +50,23 @@ function BlockExtrude({
     return rectShape;
   }, [height, holeValue, width]);
 
+  const material = useMemo(() => {
+    return new MeshStandardMaterial({
+      map,
+      roughnessMap,
+      normalMap,
+    });
+  }, [map, roughnessMap, normalMap]);
+
   return (
     <>
       <group position={position}>
-        <Extrude args={[shape, extrudeSettings]} castShadow receiveShadow>
-          <meshStandardMaterial
-            attach="material"
-            color="white"
-            map={map}
-            normalMap={normalMap}
-            roughnessMap={roughnessMap}
-          />
-          <ambientLight intensity={0.3} />
-        </Extrude>
+        <Extrude
+          material={material}
+          args={[shape, extrudeSettings]}
+          castShadow
+          receiveShadow
+        ></Extrude>
       </group>
     </>
   );

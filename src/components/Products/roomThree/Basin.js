@@ -9,6 +9,8 @@ export default function Basin({ ...props }) {
   return (
     <group ref={group} {...props} dispose={null}>
       <mesh
+        castShadow
+        receiveShadow
         geometry={
           nodes.Reece_Basin_Kado_Lussi_Above_Counter_Thin_Edge_500_mm_Type_1
             .geometry

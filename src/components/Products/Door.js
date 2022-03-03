@@ -16,11 +16,15 @@ export default function Door({ ...props }) {
       <primitive object={nodes["000_055_LockY"]} />
       <primitive object={nodes["050_000"]} />
       <skinnedMesh
+        castShadow
+        receiveShadow
         geometry={nodes["Door-mesh"].geometry}
         material={nodes["Door-mesh"].material}
         skeleton={nodes["Door-mesh"].skeleton}
       />
       <skinnedMesh
+        castShadow
+        receiveShadow
         geometry={nodes.Doorframe.geometry}
         material={nodes.Doorframe.material}
         skeleton={nodes.Doorframe.skeleton}
