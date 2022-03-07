@@ -21,7 +21,14 @@ import {
   Window,
 } from "./Products";
 
-function Design({ mode }) {
+function Design({
+  mode,
+  shadowChecked,
+  pointLightChecked,
+  directionalLightChecked,
+  normalChecked,
+  roughnessChecked,
+}) {
   const height = mode === "VR" ? 0 : -1.2;
 
   return (
@@ -37,6 +44,8 @@ function Design({ mode }) {
               rotation={rotation}
               scale={scale}
               tileRepetitionCoordinates={tileRepetitionCoordinates}
+              normalChecked={normalChecked}
+              roughnessChecked={roughnessChecked}
               type={type}
             />
           );
@@ -53,6 +62,8 @@ function Design({ mode }) {
           rotation={[0, 0, 0]}
           scale={[-3.4, 0.1, -2.2]}
           tileRepetitionCoordinates={{ x: 3.4, y: 2.3 }}
+          normalChecked={normalChecked}
+          roughnessChecked={roughnessChecked}
           type="floor"
         />
 
@@ -62,6 +73,8 @@ function Design({ mode }) {
           height={2.35}
           width={3.4}
           tileRepetitionCoordinates={{ x: 0.9, y: 1 }}
+          normalChecked={normalChecked}
+          roughnessChecked={roughnessChecked}
           type="wall"
         />
 
@@ -71,6 +84,8 @@ function Design({ mode }) {
           height={2.35}
           width={3.4}
           tileRepetitionCoordinates={{ x: 0.9, y: 1 }}
+          normalChecked={normalChecked}
+          roughnessChecked={roughnessChecked}
           type="wall"
         />
 
@@ -123,6 +138,8 @@ function Design({ mode }) {
             rotation={[0, 0, 0]}
             scale={[1.2, 0.1, 1.22]}
             tileRepetitionCoordinates={{ x: 1.2, y: 1.22 }}
+            normalChecked={normalChecked}
+            roughnessChecked={roughnessChecked}
             type="showerFloor"
           />
         </group>
@@ -130,23 +147,31 @@ function Design({ mode }) {
 
         <Window position={[-0.4, 1.2, -1.11]} rotation={[0, 3.14, 0]} />
 
-        <pointLight
-          intensity={8}
-          position={[0, 2.2, 0]}
-          shadow-mapSize-width={2048}
-          shadow-mapSize-height={2048}
-          shadow-bias={-0.00003}
-          shadow-radius={5}
-          shadow-normalBias={0.0005}
-          castShadow={true}
-        />
+        {pointLightChecked ? (
+          <pointLight
+            intensity={8}
+            position={[0, 2.2, 0]}
+            shadow-mapSize-width={2048}
+            shadow-mapSize-height={2048}
+            shadow-bias={-0.00003}
+            shadow-radius={5}
+            shadow-normalBias={0.0005}
+            castShadow={shadowChecked}
+          />
+        ) : (
+          <></>
+        )}
 
-        <directionalLight
-          castShadow
-          intensity={2}
-          position={[10, 2, -10]}
-          color="#FFFFCC"
-        />
+        {directionalLightChecked ? (
+          <directionalLight
+            castShadow={shadowChecked}
+            intensity={2}
+            position={[10, 2, -10]}
+            color="#FFFFCC"
+          />
+        ) : (
+          <></>
+        )}
       </group>
     </>
   );

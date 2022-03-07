@@ -8,6 +8,8 @@ function Floor({
   type,
   tileRepetitionCoordinates,
   color,
+  normalChecked,
+  roughnessChecked,
 }) {
   return (
     <Block
@@ -17,6 +19,8 @@ function Floor({
       type={type}
       tileRepetitionCoordinates={tileRepetitionCoordinates}
       color={color}
+      normalChecked={normalChecked}
+      roughnessChecked={roughnessChecked}
     />
   );
 }

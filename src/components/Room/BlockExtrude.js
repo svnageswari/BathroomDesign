@@ -12,6 +12,8 @@ function BlockExtrude({
   width,
   tileRepetitionCoordinates,
   type,
+  normalChecked,
+  roughnessChecked,
 }) {
   const extrudeSettings = { steps: 1, depth: 0.05, bevelEnabled: false };
   const map = setMapValue(
@@ -20,17 +22,13 @@ function BlockExtrude({
     type
   );
 
-  const roughnessMap = setMapValue(
-    blockData[type].roughness,
-    tileRepetitionCoordinates,
-    type
-  );
+  const roughnessMap = roughnessChecked
+    ? setMapValue(blockData[type].roughness, tileRepetitionCoordinates, type)
+    : null;
 
-  const normalMap = setMapValue(
-    blockData[type].normals,
-    tileRepetitionCoordinates,
-    type
-  );
+  const normalMap = normalChecked
+    ? setMapValue(blockData[type].normals, tileRepetitionCoordinates, type)
+    : null;
 
   const shape = useMemo(() => {
     const rectShape = new THREE.Shape()

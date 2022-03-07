@@ -4,7 +4,15 @@ import blockData from "../../data/blockData";
 import setMapValue from "../../utils/blockMap";
 import { MeshStandardMaterial } from "three";
 
-function Block({ position, rotation, scale, tileRepetitionCoordinates, type }) {
+function Block({
+  position,
+  rotation,
+  scale,
+  tileRepetitionCoordinates,
+  type,
+  normalChecked,
+  roughnessChecked,
+}) {
   type = type.split("-")[0];
   const map = setMapValue(
     blockData[type].texture,
@@ -12,17 +20,13 @@ function Block({ position, rotation, scale, tileRepetitionCoordinates, type }) {
     type
   );
 
-  const roughnessMap = setMapValue(
-    blockData[type].roughness,
-    tileRepetitionCoordinates,
-    type
-  );
+  const roughnessMap = roughnessChecked
+    ? setMapValue(blockData[type].roughness, tileRepetitionCoordinates, type)
+    : null;
 
-  const normalMap = setMapValue(
-    blockData[type].normals,
-    tileRepetitionCoordinates,
-    type
-  );
+  const normalMap = normalChecked
+    ? setMapValue(blockData[type].normals, tileRepetitionCoordinates, type)
+    : null;
 
   const material = useMemo(() => {
     return new MeshStandardMaterial({
